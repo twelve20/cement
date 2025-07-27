@@ -27,7 +27,7 @@
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                 </a>
-                <span class="phone-number">📞 +7 (495) 123-45-67</span>
+                <span class="phone-number">📞 +7 (963) 927-31-24</span>
             </div>
         </div>
     </div>
@@ -244,62 +244,135 @@
     <!-- Товар дня -->
     <section class="product-day-section">
         <div class="container">
-            <h2 class="section-title">Товар дня</h2>
+            <div class="section-header light">
+                <h2 class="section-title">Товар дня</h2>
+                <p class="section-subtitle">Специальное предложение по лучшей цене</p>
+            </div>
             <div class="product-day-content">
                 <div class="product-day-image">
-                    <img src="images/product-day.jpg" alt="Портландцемент М500">
+                    <img src="images/product-day.png" alt="Портландцемент М500">
                     <div class="discount-badge">-15%</div>
+                    <div class="product-day-label">ТОВАР ДНЯ</div>
                 </div>
                 <div class="product-day-info">
-                    <h3>Портландцемент М500 Д0</h3>
-                    <div class="product-price">
-                        <span class="old-price">1 200 руб/т</span>
-                        <span class="new-price">1 020 руб/т</span>
+                    <div class="product-day-header">
+                        <h2 class="product-day-title">Портландцемент М500 Д0</h2>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(127 отзывов)</span>
+                        </div>
                     </div>
+                    
+                    <div class="product-price-section">
+                        <div class="product-price">
+                            <span class="old-price">1 200 руб/т</span>
+                            <span class="new-price">1 020 руб/т</span>
+                        </div>
+                        <div class="price-description">Экономия 180 руб/т</div>
+                    </div>
+                    
                     <div class="product-description">
-                        <p>Высокопрочный портландцемент марки М500 без добавок. 
-                        Используется для производства сборного и монолитного железобетона.</p>
+                        <p>Высокопрочный портландцемент марки М500 без добавок. Используется для производства сборного и монолитного железобетона.</p>
                     </div>
+                    
                     <div class="product-features">
-                        <ul>
-                            <li>Высокая прочность</li>
-                            <li>Быстрое схватывание</li>
-                            <li>Отличная водонепроницаемость</li>
-                        </ul>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Высокая прочность</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Быстрое схватывание</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Отличная водонепроницаемость</div>
+                        </div>
                     </div>
-                    <button class="btn-buy">Заказать сейчас</button>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1" max="1000">
+                            <button class="qty-btn plus">+</button>
+                            <span class="qty-label">тонны</span>
+                        </div>
+                        
+                        <button class="btn-buy-now">Купить сейчас</button>
+                        <button class="btn-add-to-cart">
+                            <span class="cart-icon">🛒</span>
+                            В корзину
+                        </button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Артикул:</span>
+                            <span class="meta-value">CEM-500-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Наличие:</span>
+                            <span class="meta-value in-stock">В наличии (500 т)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Акции -->
+    <!-- Акции и специальные предложения -->
     <section class="promotions-section">
         <div class="container">
-            <h2 class="section-title">Акции и специальные предложения</h2>
+            <div class="section-header">
+                <h2 class="section-title">Акции</h2>
+                <p class="section-subtitle">Специальные предложения и выгодные условия</p>
+            </div>
             <div class="promotions-grid">
                 <div class="promotion-item">
-                    <img src="images/promo1.jpg" alt="Скидка на объем">
+                    <div class="promotion-image">
+                        <img src="images/promo-volume.png" alt="Скидка на объем">
+                        <div class="promotion-badge">АКЦИЯ</div>
+                    </div>
                     <div class="promotion-content">
                         <h3>Скидка на объем</h3>
                         <p>При заказе от 100 тонн - скидка 10%</p>
-                        <span class="promotion-date">До 31 декабря</span>
+                        <div class="promotion-meta">
+                            <span class="promotion-date">До 31 декабря</span>
+                            <span class="promotion-value">-10%</span>
+                        </div>
+                        <button class="btn-promotion">Подробнее</button>
                     </div>
                 </div>
+                
                 <div class="promotion-item">
-                    <img src="images/promo2.jpg" alt="Бонусная программа">
+                    <div class="promotion-image">
+                        <img src="images/promo-bonus.png" alt="Бонусная программа">
+                        <div class="promotion-badge">ПРОГРАММА</div>
+                    </div>
                     <div class="promotion-content">
                         <h3>Бонусная программа</h3>
                         <p>Накопительные скидки для постоянных клиентов</p>
-                        <span class="promotion-date">Постоянно</span>
+                        <div class="promotion-meta">
+                            <span class="promotion-date">Постоянно</span>
+                            <span class="promotion-value">до 15%</span>
+                        </div>
+                        <button class="btn-promotion">Узнать больше</button>
                     </div>
                 </div>
+                
                 <div class="promotion-item">
-                    <img src="images/promo3.jpg" alt="Подарок при заказе">
+                    <div class="promotion-image">
+                        <img src="images/promo-gift.png" alt="Подарок при заказе">
+                        <div class="promotion-badge">ПОДАРОК</div>
+                    </div>
                     <div class="promotion-content">
                         <h3>Подарок при заказе</h3>
                         <p>Бесплатная доставка при заказе от 50 тонн</p>
-                        <span class="promotion-date">До 15 ноября</span>
+                        <div class="promotion-meta">
+                            <span class="promotion-date">До 15 ноября</span>
+                            <span class="promotion-value">БЕСПЛАТНО</span>
+                        </div>
+                        <button class="btn-promotion">Активировать</button>
                     </div>
                 </div>
             </div>
@@ -309,50 +382,92 @@
     <!-- Новинки -->
     <section class="new-products-section">
         <div class="container">
-            <h2 class="section-title">Новинки</h2>
+            <div class="section-header">
+                <h2 class="section-title">Новинки</h2>
+                <p class="section-subtitle">Свежие поступления в нашем каталоге</p>
+            </div>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card new-product">
+                    <div class="product-badge new-badge">NEW</div>
                     <div class="product-image">
-                        <img src="images/new1.jpg" alt="Суперпластификатор">
-                        <div class="new-badge">NEW</div>
+                        <img src="images/new-superplasticizer.png" alt="Суперпластификатор">
                     </div>
                     <div class="product-info">
                         <h3>Суперпластификатор S-3</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Химические добавки</span>
+                        </div>
                         <div class="product-price">850 руб/кг</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card new-product">
+                    <div class="product-badge new-badge">NEW</div>
                     <div class="product-image">
-                        <img src="images/new2.jpg" alt="Гидрофобный цемент">
-                        <div class="new-badge">NEW</div>
+                        <img src="images/new-hydrophobic-cement.png" alt="Гидрофобный цемент">
                     </div>
                     <div class="product-info">
                         <h3>Гидрофобный цемент М400</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Цемент</span>
+                        </div>
                         <div class="product-price">1 150 руб/т</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card new-product">
+                    <div class="product-badge new-badge">NEW</div>
                     <div class="product-image">
-                        <img src="images/new3.jpg" alt="Самовыравнивающаяся смесь">
-                        <div class="new-badge">NEW</div>
+                        <img src="images/new-self-leveling.png" alt="Самовыравнивающаяся смесь">
                     </div>
                     <div class="product-info">
                         <h3>Самовыравнивающаяся смесь</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Сухие смеси</span>
+                        </div>
                         <div class="product-price">450 руб/меш</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card new-product">
+                    <div class="product-badge new-badge">NEW</div>
                     <div class="product-image">
-                        <img src="images/new4.jpg" alt="Теплая штукатурка">
-                        <div class="new-badge">NEW</div>
+                        <img src="images/new-thermal-plaster.png" alt="Теплая штукатурка">
                     </div>
                     <div class="product-info">
                         <h3>Теплая штукатурка EcoTherm</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Теплоизоляция</span>
+                        </div>
                         <div class="product-price">380 руб/меш</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,54 +477,108 @@
     <!-- Хиты продаж -->
     <section class="bestsellers-section">
         <div class="container">
-            <h2 class="section-title">Хиты продаж</h2>
+            <div class="section-header">
+                <h2 class="section-title">Хиты продаж</h2>
+                <p class="section-subtitle">Самые популярные товары среди наших клиентов</p>
+            </div>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card bestseller-product">
+                    <div class="product-badge hit-badge">ХИТ</div>
                     <div class="product-image">
-                        <img src="images/best1.jpg" alt="Портландцемент М400">
-                        <div class="hit-badge">ХИТ</div>
+                        <img src="images/best-portland-cement.png" alt="Портландцемент М400">
                     </div>
                     <div class="product-info">
                         <h3>Портландцемент М400</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Цемент</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(127)</span>
+                        </div>
                         <div class="product-price">980 руб/т</div>
-                        <div class="product-rating">★★★★★ (127)</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card bestseller-product">
+                    <div class="product-badge hit-badge">ХИТ</div>
                     <div class="product-image">
-                        <img src="images/best2.jpg" alt="Клей для плитки">
-                        <div class="hit-badge">ХИТ</div>
+                        <img src="images/best-tile-adhesive.png" alt="Клей для плитки">
                     </div>
                     <div class="product-info">
                         <h3>Клей для плитки универсальный</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Клеи</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-count">(98)</span>
+                        </div>
                         <div class="product-price">290 руб/меш</div>
-                        <div class="product-rating">★★★★☆ (98)</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card bestseller-product">
+                    <div class="product-badge hit-badge">ХИТ</div>
                     <div class="product-image">
-                        <img src="images/best3.jpg" alt="Штукатурка гипсовая">
-                        <div class="hit-badge">ХИТ</div>
+                        <img src="images/best-gypsum-plaster.png" alt="Штукатурка гипсовая">
                     </div>
                     <div class="product-info">
                         <h3>Штукатурка гипсовая финишная</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Сухие смеси</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(156)</span>
+                        </div>
                         <div class="product-price">320 руб/меш</div>
-                        <div class="product-rating">★★★★★ (156)</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+                
+                <div class="product-card bestseller-product">
+                    <div class="product-badge hit-badge">ХИТ</div>
                     <div class="product-image">
-                        <img src="images/best4.jpg" alt="Пескобетон М300">
-                        <div class="hit-badge">ХИТ</div>
+                        <img src="images/best-sand-concrete.png" alt="Пескобетон М300">
                     </div>
                     <div class="product-info">
                         <h3>Пескобетон М300</h3>
+                        <div class="product-meta">
+                            <span class="product-category">Бетонные смеси</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-count">(89)</span>
+                        </div>
                         <div class="product-price">890 руб/т</div>
-                        <div class="product-rating">★★★★☆ (89)</div>
-                        <button class="btn-add-to-cart">В корзину</button>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart-small">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                            <button class="btn-quick-view">Быстрый просмотр</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -419,39 +588,71 @@
     <!-- Новости и обзоры -->
     <section class="news-section">
         <div class="container">
-            <h2 class="section-title">Новости и обзоры</h2>
+            <div class="section-header light"> <!-- Добавлен класс light -->
+                <h2 class="section-title">Новости и обзоры</h2>
+                <p class="section-subtitle">Актуальные новости компании и обзоры продукции</p>
+            </div>
             <div class="news-grid">
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/news1.jpg" alt="Новая линейка цемента">
+                        <img src="images/news-new-cement-line.png" alt="Новая линейка цемента">
+                        <div class="news-date-badge">15 окт</div>
                     </div>
                     <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Новости компании</span>
+                        </div>
                         <h3>Запущена новая линейка цемента с улучшенными характеристиками</h3>
-                        <p class="news-date">15 октября 2024</p>
-                        <p>Компания представила обновленную линейку портландцемента...</p>
-                        <a href="#" class="read-more">Читать далее</a>
+                        <p class="news-excerpt">Компания представила обновленную линейку портландцемента с улучшенными прочностными характеристиками и временем схватывания.</p>
+                        <div class="news-footer">
+                            <a href="#" class="read-more-link">Читать далее</a>
+                            <div class="news-stats">
+                                <span class="views">👁 1.2K</span>
+                                <span class="comments">💬 24</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/news2.jpg" alt="Расширение склада">
+                        <img src="images/news-warehouse-expansion.png" alt="Расширение склада">
+                        <div class="news-date-badge">10 окт</div>
                     </div>
                     <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Развитие</span>
+                        </div>
                         <h3>Расширение складских помещений для увеличения запасов</h3>
-                        <p class="news-date">10 октября 2024</p>
-                        <p>Новый склад позволит ускорить обработку заказов...</p>
-                        <a href="#" class="read-more">Читать далее</a>
+                        <p class="news-excerpt">Новый склад позволит ускорить обработку заказов и обеспечить бесперебойные поставки в высокий сезон.</p>
+                        <div class="news-footer">
+                            <a href="#" class="read-more-link">Читать далее</a>
+                            <div class="news-stats">
+                                <span class="views">👁 890</span>
+                                <span class="comments">💬 17</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/news3.jpg" alt="Экологические инициативы">
+                        <img src="images/news-eco-initiatives.png" alt="Экологические инициативы">
+                        <div class="news-date-badge">05 окт</div>
                     </div>
                     <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Экология</span>
+                        </div>
                         <h3>Экологические инициативы компании в 2024 году</h3>
-                        <p class="news-date">5 октября 2024</p>
-                        <p>В рамках экологической программы запущены новые проекты...</p>
-                        <a href="#" class="read-more">Читать далее</a>
+                        <p class="news-excerpt">В рамках экологической программы запущены новые проекты по снижению углеродного следа производства.</p>
+                        <div class="news-footer">
+                            <a href="#" class="read-more-link">Читать далее</a>
+                            <div class="news-stats">
+                                <span class="views">👁 1.5K</span>
+                                <span class="comments">💬 32</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -492,17 +693,12 @@
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Подписка</h3>
-                    <p>Подпишитесь на наши новости и акции</p>
+                    <h3>Подписка на новости</h3>
+                    <p>Получайте актуальные новости и специальные предложения</p>
                     <form class="subscribe-form">
-                        <input type="email" placeholder="Ваш email" required>
+                        <input type="email" placeholder="Введите ваш email" required>
                         <button type="submit">Подписаться</button>
                     </form>
-                    <div class="social-links">
-                        <a href="#">VK</a>
-                        <a href="#">Telegram</a>
-                        <a href="#">WhatsApp</a>
-                    </div>
                 </div>
             </div>
             
@@ -510,11 +706,9 @@
                 <div class="copyright">
                     <p>&copy; 2024 ЦЕМЕНТ-ОПТ. Все права защищены.</p>
                 </div>
-                <div class="payment-methods">
-                    <span>Принимаем к оплате:</span>
-                    <img src="images/visa.png" alt="Visa">
-                    <img src="images/mastercard.png" alt="Mastercard">
-                    <img src="images/mir.png" alt="Мир">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Публичная оферта</a>
+                    <a href="#" class="footer-link">Политика конфиденциальности</a>
                 </div>
             </div>
         </div>
