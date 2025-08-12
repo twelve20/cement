@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портландцемент М500 Д0 - ЦЕМЕНТ-ОПТ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/product.css">
+</head>
+<body>
+    <!-- Мини шапка -->
+    <div class="mini-header">
+        <div class="container">
+            <div class="mini-header-links">
+                <a href="../delivery.html">Оплата и доставка</a>
+                <a href="../warranty.html">Гарантии</a>
+                <a href="../credit.html">Рассрочка и Кредит</a>
+                <a href="../news.html">Новости и обзоры</a>
+            </div>
+            <div class="mini-header-social">
+                <a href="https://t.me/yourusername" class="social-icon telegram" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/79991234567" class="social-icon whatsapp" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+                <span class="phone-number">📞 +7 (963) 927-31-24</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основная шапка -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <span class="logo-primary">ЦЕМЕНТ</span>
+                    <span class="logo-secondary">ОПТ</span>
+                </h1>
+            </div>
+            
+            <button class="catalog-btn">
+                <span>☰</span> Каталог
+            </button>
+            
+            <button class="promotions-btn">
+                Акции
+            </button>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Поиск по товарам...">
+                    <button type="submit" id="searchButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="typing-text" id="typingText"></div>
+            </div>
+            
+            <div class="header-icons">
+                <a href="../favorites.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Избранное</span>
+                </a>
+                
+                <a href="../cart.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span class="icon-label">Корзина</span>
+                </a>
+                
+                <a href="../profile.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Профиль</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail-main">
+        <div class="container">
+            <!-- Хлебные крошки -->
+            <nav class="breadcrumb">
+                <a href="../index.html">Главная</a> >
+                <a href="catalog.html">Каталог</a> >
+                <a href="catalog.html#цемент">Цемент</a> >
+                <span>Портландцемент М500 Д0</span>
+            </nav>
+
+            <!-- Секция товара -->
+            <section class="product-detail-section">
+                <div class="product-detail-content">
+                    <!-- Левая колонка: Галерея изображений -->
+                    <div class="product-detail-gallery">
+                        <div class="main-image">
+                            <img src="../images/product-day.png" alt="Портландцемент М500 Д0">
+                        </div>
+                        <div class="thumbnails">
+                            <img src="../images/product-day.png" alt="Портландцемент М500 Д0" class="thumbnail active">
+                            <img src="../images/category-cement.png" alt="Портландцемент М500 Д0" class="thumbnail">
+                            <img src="../images/best-portland-cement.png" alt="Портландцемент М500 Д0" class="thumbnail">
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка: Информация и действия -->
+                    <div class="product-detail-info">
+                        <div class="product-detail-header">
+                            <h1 class="product-detail-title">Портландцемент М500 Д0</h1>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="reviews">(127 отзывов)</span>
+                                <a href="#reviews" class="add-review-link">Написать отзыв</a>
+                            </div>
+                        </div>
+
+                        <div class="product-price-section">
+                            <div class="product-price">
+                                <span class="old-price">1 200 руб/т</span>
+                                <span class="new-price">1 020 руб/т</span>
+                            </div>
+                            <div class="price-description">Экономия 180 руб/т</div>
+                        </div>
+
+                        <div class="product-short-description">
+                            <p>Высокопрочный портландцемент марки М500 без добавок. Используется для производства сборного и монолитного железобетона, строительных растворов, штукатурок и других строительных работ.</p>
+                        </div>
+
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Артикул:</span>
+                                <span class="meta-value">CEM-500-001</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Наличие:</span>
+                                <span class="meta-value in-stock">В наличии (500 т)</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Производитель:</span>
+                                <span class="meta-value">ООО "ЦементПрофи"</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Упаковка:</span>
+                                <span class="meta-value">50 кг/мешок</span>
+                            </div>
+                        </div>
+
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1" max="1000">
+                                <button class="qty-btn plus">+</button>
+                                <span class="qty-label">тонны</span>
+                            </div>
+                            
+                            <button class="btn-buy-now">Купить сейчас</button>
+                            <button class="btn-add-to-cart">
+                                <span class="cart-icon">🛒</span>
+                                В корзину
+                            </button>
+                        </div>
+
+                        <div class="product-share">
+                            <span>Поделиться:</span>
+                            <div class="social-share-icons">
+                                <a href="#" class="social-share-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                                </a>
+                                <a href="#" class="social-share-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </a>
+                                <a href="#" class="social-share-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция подробного описания и характеристик -->
+            <section class="product-detail-tabs">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="description">Описание</button>
+                    <button class="tab-button" data-tab="specifications">Характеристики</button>
+                    <button class="tab-button" data-tab="reviews">Отзывы (127)</button>
+                </div>
+                
+                <div class="tab-content active" id="description-content">
+                    <h3>Подробное описание</h3>
+                    <p>Портландцемент М500 Д0 – это высокопрочный цемент, соответствующий ГОСТ 31108-2016. Отсутствие минеральных и специальных добавок делает его универсальным связующим материалом для широкого спектра строительных работ.</p>
+                    
+                    <h4>Преимущества:</h4>
+                    <ul>
+                        <li>Высокая прочность на сжатие (марка 500)</li>
+                        <li>Быстрое схватывание и твердение</li>
+                        <li>Отличная водонепроницаемость</li>
+                        <li>Устойчивость к низким температурам</li>
+                        <li>Хорошая адгезия к различным основаниям</li>
+                    </ul>
+                    
+                    <h4>Область применения:</h4>
+                    <ul>
+                        <li>Производство сборного и монолитного железобетона</li>
+                        <li>Подготовка строительных растворов для кладки и штукатурки</li>
+                        <li>Изготовление бетонных полов и стяжек</li>
+                        <li>Гидротехнические сооружения</li>
+                        <li>Фундаменты, колонны, балки, перекрытия</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="specifications-content">
+                    <h3>Технические характеристики</h3>
+                    <table class="specifications-table">
+                        <tbody>
+                            <tr>
+                                <td><strong>Марка прочности</strong></td>
+                                <td>М500</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Тип цемента</strong></td>
+                                <td>Портландцемент</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Наличие добавок</strong></td>
+                                <td>Д0 (без добавок)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Тонкость помола, см²/г</strong></td>
+                                <td>≥ 3000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Начало схватывания, мин</strong></td>
+                                <td>≥ 45</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Конец схватывания, мин</strong></td>
+                                <td>≤ 600</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Прочность на сжатие за 28 суток, МПа</strong></td>
+                                <td>≥ 52.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Прочность на изгиб за 28 суток, МПа</strong></td>
+                                <td>≥ 7.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Устойчивость к сульфатам</strong></td>
+                                <td>Средняя</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Цвет</strong></td>
+                                <td>Серый</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Срок годности</strong></td>
+                                <td>12 месяцев</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="tab-content" id="reviews-content">
+                    <h3>Отзывы покупателей</h3>
+                    <div class="reviews-summary">
+                        <div class="average-rating">
+                            <span class="rating-value">4.8</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews-count">из 127 отзывов</span>
+                        </div>
+                        <button class="btn-add-review">Написать отзыв</button>
+                    </div>
+                    
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <strong>Алексей Иванов</strong>
+                                <span class="review-date">15 октября 2023</span>
+                            </div>
+                            <div class="review-rating">
+                                <span class="stars">★★★★★</span>
+                            </div>
+                            <div class="review-text">
+                                Отличный цемент! Бетон получился очень прочным. Доставка быстрая, упаковка целая. Рекомендую!
+                            </div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-header">
+                                <strong>СтройПрофи</strong>
+                                <span class="review-date">10 октября 2023</span>
+                            </div>
+                            <div class="review-rating">
+                                <span class="stars">★★★★☆</span>
+                            </div>
+                            <div class="review-text">
+                                Хорошее качество, но цена немного выше среднерыночной. В остальном - всё отлично.
+                            </div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-header">
+                                <strong>Михаил Петров</strong>
+                                <span class="review-date">5 октября 2023</span>
+                            </div>
+                            <div class="review-rating">
+                                <span class="stars">★★★★★</span>
+                            </div>
+                            <div class="review-text">
+                                Заказывал для фундамента частного дома. Результатом доволен. Цемент М500 - проверенный временем выбор.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="review-form" id="reviewForm">
+                        <h4>Оставить отзыв</h4>
+                        <div class="form-group">
+                            <label for="reviewName">Ваше имя *</label>
+                            <input type="text" id="reviewName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewRating">Ваша оценка *</label>
+                            <div class="rating-input">
+                                <input type="radio" id="star5" name="rating" value="5" required>
+                                <label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Ваш отзыв *</label>
+                            <textarea id="reviewText" name="text" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-review">Отправить отзыв</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Каталог</h3>
+                    <ul>
+                        <li><a href="catalog.html">Цемент</a></li>
+                        <li><a href="catalog.html">Сухие смеси</a></li>
+                        <li><a href="catalog.html">Строительные материалы</a></li>
+                        <li><a href="catalog.html">Инструменты</a></li>
+                        <li><a href="catalog.html">Утеплители</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="../delivery.html">Доставка и оплата</a></li>
+                        <li><a href="../warranty.html">Гарантии</a></li>
+                        <li><a href="#">Возврат товара</a></li>
+                        <li><a href="../contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p>📍 г. Москва, ул. Примерная, д. 10</p>
+                        <p>📞 +7 (495) 123-45-67</p>
+                        <p>✉️ info@cement-opt.ru</p>
+                        <p>🕒 Пн-Пт: 9:00-18:00</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Подписка на новости</h3>
+                    <p>Получайте актуальные новости и специальные предложения</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Введите ваш email" required>
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 ЦЕМЕНТ-ОПТ. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Публичная оферта</a>
+                    <a href="#" class="footer-link">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+    <script src="../js/script.js"></script>
+    <script src="../js/product.js"></script>
+</body>
+</html>
