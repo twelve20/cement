@@ -3367,3 +3367,96 @@ body {
         width: calc(100% - 20px);
     }
 }
+
+/* =============================== */
+/* Улучшенные хлебные крошки       */
+/* =============================== */
+
+.breadcrumb {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между элементами */
+    flex-wrap: wrap; /* Перенос при необходимости */
+}
+
+.breadcrumb a {
+    color: #000; /* Цвет ссылок */
+    text-decoration: none;
+    transition: all 0.2s ease; /* Плавный переход */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Расстояние между текстом и иконкой */
+    padding: 5px 10px; /* Внутренние отступы */
+    border-radius: 4px; /* Скругление углов */
+}
+
+.breadcrumb a:hover {
+    color: #fff; /* Белый цвет текста при наведении */
+    background-color: #000; /* Черный фон при наведении */
+    transform: translateY(-2px); /* Легкое приподнимание при наведении */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Тень при наведении */
+}
+
+.breadcrumb span {
+    color: #999; /* Цвет текущей страницы */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Добавим иконку "домой" для первой ссылки */
+.breadcrumb a:first-child:before {
+    content: '🏠';
+    margin-right: 5px;
+}
+
+/* Добавим иконку "стрелка" между элементами */
+.breadcrumb a:not(:last-child):after {
+    content: '>';
+    margin-left: 10px;
+    color: #ccc;
+}
+
+/* Адаптивность для хлебных крошек */
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 13px;
+        gap: 5px;
+    }
+    
+    .breadcrumb a,
+    .breadcrumb span {
+        padding: 4px 8px;
+    }
+    
+    .breadcrumb a:not(:last-child):after {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb {
+        font-size: 12px;
+        gap: 3px;
+    }
+    
+    .breadcrumb a,
+    .breadcrumb span {
+        padding: 3px 6px;
+    }
+    
+    .breadcrumb a:first-child:before {
+        margin-right: 3px;
+        font-size: 10px;
+    }
+    
+    .breadcrumb a:not(:last-child):after {
+        margin-left: 3px;
+        font-size: 10px;
+    }
+}

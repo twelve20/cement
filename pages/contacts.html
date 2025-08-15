@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - ЦЕМЕНТ-ОПТ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contacts.css">
+    <!-- Добавим стили для карты -->
+    <style>
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .map-container {
+                height: 300px;
+            }
+        }
+        @media (max-width: 480px) {
+            .map-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Мини шапка -->
+    <div class="mini-header">
+        <div class="container">
+            <div class="mini-header-links">
+                <a href="delivery.html">Оплата и доставка</a>
+                <a href="warranty.html">Гарантии</a>
+                <a href="credit.html">Рассрочка и Кредит</a>
+                <a href="news.html">Новости и обзоры</a>
+            </div>
+            <div class="mini-header-social">
+                <a href="https://t.me/yourusername" class="social-icon telegram" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/79991234567" class="social-icon whatsapp" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+                <span class="phone-number">📞 +7 (963) 927-31-24</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основная шапка -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <span class="logo-primary">ЦЕМЕНТ</span>
+                    <span class="logo-secondary">ОПТ</span>
+                </h1>
+            </div>
+            
+            <button class="catalog-btn">
+                <span>☰</span> Каталог
+            </button>
+            
+            <button class="promotions-btn">
+                Акции
+            </button>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput">
+                    <button type="submit" id="searchButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="typing-text" id="typingText"></div>
+            </div>
+            
+            <div class="header-icons">
+                <a href="favorites.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Избранное</span>
+                </a>
+                
+                <a href="cart.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span class="icon-label">Корзина</span>
+                </a>
+                
+                <a href="profile.html" class="icon-link">
+                    <div class="icon-wrapper">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Профиль</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="contacts-main">
+        <div class="container">
+            <!-- Хлебные крошки -->
+            <nav class="breadcrumb">
+                <a href="index.html">Главная</a> >
+                <span>Контакты</span>
+            </nav>
+
+            <h1 class="page-title">Контакты</h1>
+
+            <!-- Карта -->
+            <div class="map-container">
+                <!-- Замените src на вашу карту -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.576083566284!2d37.6173!3d55.7558!1m3!1m2!1s37.6173!2s55.7558!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a2cd6710a!2z0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC7Liwg0JzQvtGB0LrQvtCy0YHQutCw0Y8!5e0!3m2!1sru!2sru!4v1672731754321!5m2!1sru!2sru" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="contacts-layout">
+                <!-- Контактная информация -->
+                <div class="contacts-info">
+                    <h2 class="section-title">Наши контакты</h2>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h3>Адрес</h3>
+                            <p>📍 г. Москва, ул. Примерная, д. 10</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Телефоны</h3>
+                            <p>📞 +7 (495) 123-45-67</p>
+                            <p>📞 +7 (963) 927-31-24</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>✉️ <a href="mailto:info@cement-opt.ru">info@cement-opt.ru</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Режим работы</h3>
+                            <p>🕒 Пн-Пт: 9:00-18:00</p>
+                            <p>🕒 Сб: 10:00-16:00</p>
+                            <p>🕒 Вс: выходной</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Социальные сети</h3>
+                            <div class="social-links">
+                                <a href="https://t.me/yourusername" class="social-link telegram" target="_blank">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                                    </svg>
+                                    Telegram
+                                </a>
+                                <a href="https://wa.me/79991234567" class="social-link whatsapp" target="_blank">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                    </svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Форма обратной связи -->
+                <div class="contacts-form">
+                    <h2 class="section-title">Связаться с нами</h2>
+                    <form class="feedback-form" id="feedbackForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Тема обращения *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Выберите тему</option>
+                                <option value="question">Вопрос по товару</option>
+                                <option value="order">Оформление заказа</option>
+                                <option value="delivery">Доставка</option>
+                                <option value="complaint">Жалоба</option>
+                                <option value="partnership">Сотрудничество</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Каталог</h3>
+                    <ul>
+                        <li><a href="catalog.html">Цемент</a></li>
+                        <li><a href="catalog.html">Сухие смеси</a></li>
+                        <li><a href="catalog.html">Строительные материалы</a></li>
+                        <li><a href="catalog.html">Инструменты</a></li>
+                        <li><a href="catalog.html">Утеплители</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="delivery.html">Доставка и оплата</a></li>
+                        <li><a href="warranty.html">Гарантии</a></li>
+                        <li><a href="#">Возврат товара</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p>📍 г. Москва, ул. Примерная, д. 10</p>
+                        <p>📞 +7 (495) 123-45-67</p>
+                        <p>✉️ info@cement-opt.ru</p>
+                        <p>🕒 Пн-Пт: 9:00-18:00</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Подписка на новости</h3>
+                    <p>Получайте актуальные новости и специальные предложения</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Введите ваш email" required>
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 ЦЕМЕНТ-ОПТ. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Публичная оферта</a>
+                    <a href="#" class="footer-link">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+    <script src="../js/script.js"></script>
+    <script>
+        // Простая валидация формы
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Простая валидация
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (name && email && subject && message) {
+                        // В реальном проекте здесь будет отправка данных на сервер
+                        alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                        form.reset();
+                    } else {
+                        alert('Пожалуйста, заполните все обязательные поля.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
