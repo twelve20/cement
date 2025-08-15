@@ -3378,7 +3378,7 @@ body {
     color: #666;
     display: flex;
     align-items: center;
-    gap: 10px; /* Расстояние между элементами */
+    gap: 8px; /* Расстояние между элементами */
     flex-wrap: wrap; /* Перенос при необходимости */
 }
 
@@ -3388,8 +3388,8 @@ body {
     transition: all 0.2s ease; /* Плавный переход */
     display: flex;
     align-items: center;
-    gap: 5px; /* Расстояние между текстом и иконкой */
-    padding: 5px 10px; /* Внутренние отступы */
+    gap: 6px; /* Расстояние между текстом и разделителем */
+    padding: 6px 12px; /* Внутренние отступы */
     border-radius: 4px; /* Скругление углов */
 }
 
@@ -3402,24 +3402,18 @@ body {
 
 .breadcrumb span {
     color: #999; /* Цвет текущей страницы */
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 4px;
+    background-color: #f8f9fa; /* Светлый фон для текущей страницы */
+    font-weight: 500;
 }
 
-/* Добавим иконку "домой" для первой ссылки */
-.breadcrumb a:first-child:before {
-    content: '🏠';
-    margin-right: 5px;
-}
-
-/* Добавим иконку "стрелка" между элементами */
+/* Добавим символ ">" между элементами с помощью CSS */
 .breadcrumb a:not(:last-child):after {
     content: '>';
-    margin-left: 10px;
+    margin-left: 8px;
     color: #ccc;
+    font-weight: normal;
 }
 
 /* Адаптивность для хлебных крошек */
@@ -3431,32 +3425,28 @@ body {
     
     .breadcrumb a,
     .breadcrumb span {
-        padding: 4px 8px;
+        padding: 5px 10px;
     }
     
     .breadcrumb a:not(:last-child):after {
-        margin-left: 5px;
+        margin-left: 6px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
     .breadcrumb {
         font-size: 12px;
-        gap: 3px;
+        gap: 4px;
     }
     
     .breadcrumb a,
     .breadcrumb span {
-        padding: 3px 6px;
-    }
-    
-    .breadcrumb a:first-child:before {
-        margin-right: 3px;
-        font-size: 10px;
+        padding: 4px 8px;
     }
     
     .breadcrumb a:not(:last-child):after {
-        margin-left: 3px;
-        font-size: 10px;
+        margin-left: 5px;
+        font-size: 11px;
     }
 }
