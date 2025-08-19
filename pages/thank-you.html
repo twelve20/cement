@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Акции и Специальные предложения - ЦЕМЕНТ-ОПТ</title>
+    <title>Спасибо за заказ! - ЦЕМЕНТ-ОПТ</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/thank-you.css">
 </head>
 <body>
     <!-- Мини шапка -->
@@ -13,7 +14,7 @@
             <div class="mini-header-links">
                 <a href="delivery.html">Оплата и доставка</a>
                 <a href="warranty.html">Гарантии</a>
-                <a href="credit.html">Рассрочка и Кредит</a>
+                <a href="../credit.html">Рассрочка и Кредит</a>
                 <a href="news.html">Новости и обзоры</a>
             </div>
             <div class="mini-header-social">
@@ -52,7 +53,7 @@
             
             <div class="search-container">
                 <div class="search-bar">
-                    <input type="text" id="searchInput">
+                    <input type="text" id="searchInput" placeholder="Поиск по товарам...">
                     <button type="submit" id="searchButton">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
@@ -98,121 +99,49 @@
         </div>
     </header>
 
-    <main class="promotions-main">
+    <main class="thank-you-main">
         <div class="container">
-            <!-- Хлебные крошки -->
-            <nav class="breadcrumb">
-                <a href="index.html">Главная</a> >
-                <span>Акции и предложения</span>
-            </nav>
-
-            <h1 class="page-title">Акции и Специальные предложения</h1>
-
-            <p class="promotions-intro">
-                Узнайте о наших текущих акциях, скидках и специальных предложениях для оптовых клиентов.
-            </p>
-
-            <div class="promotions-grid">
-                <!-- Пример акции 1 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-bulk-discount.jpg" alt="Оптовая скидка">
-                        <div class="promotion-badge">Скидка</div>
+            <div class="thank-you-content">
+                <div class="thank-you-icon">✅</div>
+                <h1 class="thank-you-title">Спасибо за ваш заказ!</h1>
+                <p class="thank-you-message">
+                    Ваш заказ успешно оформлен. Номер вашего заказа: <strong>ORD-2024-00123</strong>.
+                    Мы свяжемся с вами в ближайшее время для подтверждения деталей.
+                </p>
+                
+                <div class="order-details">
+                    <h3>Информация о заказе</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">Дата заказа:</span>
+                        <span class="detail-value">15 октября 2024</span>
                     </div>
-                    <div class="promotion-content">
-                        <h3>Оптовая скидка на цемент</h3>
-                        <p>При заказе от 50 тонн портландцемента М400 — скидка 15%. При заказе от 100 тонн — скидка 25%.</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">До 31 декабря 2024</div>
-                            <div class="promotion-value">-25%</div>
-                        </div>
-                        <button class="btn-promotion">Подробнее</button>
+                    <div class="detail-item">
+                        <span class="detail-label">Способ оплаты:</span>
+                        <span class="detail-value">Банковская карта</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Способ доставки:</span>
+                        <span class="detail-value">Доставка по Москве</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Сумма заказа:</span>
+                        <span class="detail-value">4 560 руб</span>
                     </div>
                 </div>
-
-                <!-- Пример акции 2 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-new-product.jpg" alt="Новинка">
-                        <div class="promotion-badge">Новинка</div>
-                    </div>
-                    <div class="promotion-content">
-                        <h3>Знакомьтесь: новый гидрофобный цемент</h3>
-                        <p>Теперь в нашем ассортименте — улучшенный гидрофобный цемент М400 с повышенной морозостойкостью.</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">Новинка 2024</div>
-                            <div class="promotion-value">Новинка</div>
-                        </div>
-                        <button class="btn-promotion">Смотреть новинку</button>
-                    </div>
+                
+                <div class="order-actions">
+                    <a href="profile.html" class="btn-order-history">История заказов</a>
+                    <a href="catalog.html" class="btn-continue-shopping">Продолжить покупки</a>
                 </div>
-
-                <!-- Пример акции 3 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-combo-pack.jpg" alt="Комплект">
-                        <div class="promotion-badge">Комплект</div>
-                    </div>
-                    <div class="promotion-content">
-                        <h3>Комплект строительных смесей</h3>
-                        <p>При покупке комплекта из цемента, штукатурки и клея для плитки — скидка 10% на весь комплект.</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">До 15 ноября 2024</div>
-                            <div class="promotion-value">-10%</div>
-                        </div>
-                        <button class="btn-promotion">Собрать комплект</button>
-                    </div>
-                </div>
-
-                <!-- Пример акции 4 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-free-delivery.jpg" alt="Бесплатная доставка">
-                        <div class="promotion-badge">Бесплатно</div>
-                    </div>
-                    <div class="promotion-content">
-                        <h3>Бесплатная доставка</h3>
-                        <p>При заказе от 30 тонн строительных материалов — доставка по Москве и МО осуществляется бесплатно.</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">Акция действует всегда</div>
-                            <div class="promotion-value">Бесплатно</div>
-                        </div>
-                        <button class="btn-promotion">Условия доставки</button>
-                    </div>
-                </div>
-
-                <!-- Пример акции 5 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-loyalty.jpg" alt="Программа лояльности">
-                        <div class="promotion-badge">Программа</div>
-                    </div>
-                    <div class="promotion-content">
-                        <h3>Программа лояльности</h3>
-                        <p>Накапливайте баллы за каждый заказ и получайте скидки на будущие покупки. Уже после первого заказа!</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">Действует постоянно</div>
-                            <div class="promotion-value">+5%</div>
-                        </div>
-                        <button class="btn-promotion">Узнать больше</button>
-                    </div>
-                </div>
-
-                <!-- Пример акции 6 -->
-                <div class="promotion-item">
-                    <div class="promotion-image">
-                        <img src="../images/promotion-seasonal.jpg" alt="Сезонная распродажа">
-                        <div class="promotion-badge">Распродажа</div>
-                    </div>
-                    <div class="promotion-content">
-                        <h3>Осеннее предложение</h3>
-                        <p>Специальные цены на утеплители и гидроизоляционные материалы в честь начала строительного сезона.</p>
-                        <div class="promotion-meta">
-                            <div class="promotion-date">До 30 сентября 2024</div>
-                            <div class="promotion-value">-20%</div>
-                        </div>
-                        <button class="btn-promotion">Перейти в каталог</button>
-                    </div>
+                
+                <div class="order-help">
+                    <h3>Что дальше?</h3>
+                    <ul>
+                        <li>Наши менеджеры свяжутся с вами в течение 1 часа для подтверждения заказа.</li>
+                        <li>Вы получите письмо с деталями заказа на email <strong>ivan.petrov@email.com</strong>.</li>
+                        <li>Товар будет подготовлен к доставке согласно согласованному графику.</li>
+                        <li>Вы можете отслеживать статус заказа в <a href="profile.html">личном кабинете</a>.</li>
+                    </ul>
                 </div>
             </div>
         </div>

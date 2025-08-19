@@ -1,0 +1,298 @@
+/* =============================== */
+/* Стили для страницы благодарности */
+/* =============================== */
+
+.thank-you-main {
+    padding: 80px 0;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.thank-you-content {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.thank-you-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #2ed573; /* Зеленый цвет для иконки успеха */
+}
+
+.thank-you-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin: 20px 0;
+}
+
+.thank-you-message {
+    font-size: 16px;
+    color: #666;
+    margin: 20px 0 30px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thank-you-message strong {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Детали заказа */
+.order-details {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    margin: 30px 0;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-details h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+    text-align: center;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.detail-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Действия */
+.order-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn-order-history {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-order-history:hover {
+    background: #333;
+    border-color: #333;
+    transform: translateY(-1px);
+}
+
+.btn-continue-shopping {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #e9ecef;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-continue-shopping:hover {
+    background: #e9ecef;
+    border-color: #dee2e6;
+    transform: translateY(-1px);
+}
+
+/* Помощь */
+.order-help {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    margin-top: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-help h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+    text-align: left;
+}
+
+.order-help ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-help li {
+    margin: 10px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+}
+
+.order-help li:before {
+    content: '✓';
+    color: #2ed573;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.order-help a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.order-help a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .thank-you-main {
+        padding: 60px 0;
+    }
+    
+    .thank-you-content {
+        padding: 50px 15px;
+    }
+    
+    .thank-you-title {
+        font-size: 32px;
+    }
+    
+    .thank-you-message {
+        font-size: 15px;
+    }
+    
+    .order-details {
+        padding: 20px;
+    }
+    
+    .order-details h3 {
+        font-size: 17px;
+    }
+    
+    .detail-item {
+        font-size: 14px;
+    }
+    
+    .order-actions {
+        gap: 15px;
+    }
+    
+    .btn-order-history,
+    .btn-continue-shopping {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .order-help {
+        padding: 20px;
+    }
+    
+    .order-help h3 {
+        font-size: 17px;
+    }
+    
+    .order-help li {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-main {
+        padding: 40px 0;
+    }
+    
+    .thank-you-content {
+        padding: 40px 15px;
+    }
+    
+    .thank-you-icon {
+        font-size: 50px;
+    }
+    
+    .thank-you-title {
+        font-size: 28px;
+    }
+    
+    .thank-you-message {
+        font-size: 14px;
+    }
+    
+    .order-details {
+        padding: 15px;
+    }
+    
+    .order-details h3 {
+        font-size: 16px;
+    }
+    
+    .detail-item {
+        font-size: 13px;
+    }
+    
+    .order-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-order-history,
+    .btn-continue-shopping {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .order-help {
+        padding: 15px;
+    }
+    
+    .order-help h3 {
+        font-size: 16px;
+    }
+    
+    .order-help li {
+        font-size: 13px;
+    }
+}
