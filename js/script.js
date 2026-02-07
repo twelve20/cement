@@ -1,19 +1,18 @@
 /**
- * CEMENT SITE - Главный JavaScript файл
- * Все модули собраны здесь для надёжной работы
+ * 🎨 ARCHIN CEMENT - Premium JavaScript
+ * Современные интерактивные эффекты
  */
 
 (function() {
     'use strict';
 
     // ===========================================
-    // ГЛАВНОЕ ПРИЛОЖЕНИЕ
+    // 🚀 ГЛАВНОЕ ПРИЛОЖЕНИЕ
     // ===========================================
-    const CementApp = {
-        init: function() {
-            console.log('CementApp: Инициализация...');
+    const App = {
+        init() {
+            console.log('🚀 ARCHIN Premium: Инициализация...');
             
-            // Ждём полной загрузки DOM
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => this.start());
             } else {
@@ -21,92 +20,93 @@
             }
         },
 
-        start: function() {
-            // Инициализация всех модулей
+        start() {
+            // Модули
             Slider.init();
             Search.init();
             Cart.init();
             TypingEffect.init();
             ScrollToTop.init();
-            Promotions.init();
-            CatalogDropdown.init();
+            HeaderScroll.init();
+            ScrollAnimations.init();
             QuantitySelector.init();
+            CatalogButton.init();
+            PromotionsButton.init();
             
-            // Глобальные обработчики
+            // Глобальные события
             this.bindGlobalEvents();
             
-            console.log('CementApp: Готово!');
+            console.log('✅ ARCHIN Premium: Готово!');
         },
 
-        bindGlobalEvents: function() {
-            // Плавная прокрутка для якорных ссылок
-            document.addEventListener('click', function(e) {
+        bindGlobalEvents() {
+            // Плавный скролл для якорей
+            document.addEventListener('click', (e) => {
                 const link = e.target.closest('a[href^="#"]');
                 if (link) {
                     const targetId = link.getAttribute('href').substring(1);
                     if (targetId) {
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
+                        const target = document.getElementById(targetId);
+                        if (target) {
                             e.preventDefault();
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            target.scrollIntoView({ behavior: 'smooth' });
                         }
                     }
                 }
             });
+
+            // Предотвращение FOUC
+            document.body.classList.add('loaded');
         }
     };
 
     // ===========================================
-    // СЛАЙДЕР
+    // 🎠 ПРЕМИУМ СЛАЙДЕР
     // ===========================================
     const Slider = {
-        currentSlide: 0,
+        current: 0,
         slides: [],
         dots: [],
-        totalSlides: 0,
+        total: 0,
         interval: null,
-        autoPlayDelay: 5000,
+        delay: 5000,
 
-        init: function() {
+        init() {
             this.slides = document.querySelectorAll('.slider-item');
             this.dots = document.querySelectorAll('.pagination-dot');
-            this.totalSlides = this.slides.length;
+            this.total = this.slides.length;
 
-            if (this.totalSlides === 0) return;
+            if (!this.total) return;
 
             this.setupNavigation();
             this.showSlide(0);
             this.startAutoPlay();
             
-            console.log('Slider: Инициализировано, слайдов:', this.totalSlides);
+            console.log('🎠 Slider: готов');
         },
 
-        setupNavigation: function() {
-            // Кнопки навигации
-            const prevBtn = document.querySelector('.prev-side-btn');
-            const nextBtn = document.querySelector('.next-side-btn');
+        setupNavigation() {
+            // Кнопки
+            const prev = document.querySelector('.prev-side-btn');
+            const next = document.querySelector('.next-side-btn');
 
-            if (prevBtn) {
-                prevBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.prevSlide();
-                    this.resetAutoPlay();
-                });
-            }
+            if (prev) prev.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.prev();
+                this.resetAutoPlay();
+            });
 
-            if (nextBtn) {
-                nextBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.nextSlide();
-                    this.resetAutoPlay();
-                });
-            }
+            if (next) next.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.next();
+                this.resetAutoPlay();
+            });
 
-            // Точки пагинации
-            this.dots.forEach((dot, index) => {
+            // Точки
+            this.dots.forEach((dot, i) => {
                 dot.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.goToSlide(index);
+                    this.goTo(i);
                     this.resetAutoPlay();
                 });
             });
@@ -119,272 +119,243 @@
             }
 
             // Свайп на мобильных
-            this.setupTouchEvents();
+            this.setupSwipe();
         },
 
-        setupTouchEvents: function() {
+        setupSwipe() {
             const wrapper = document.querySelector('.slider-wrapper');
             if (!wrapper) return;
 
             let startX = 0;
-            let endX = 0;
 
             wrapper.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
             }, { passive: true });
 
             wrapper.addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                const diff = startX - endX;
-
+                const diff = startX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        this.nextSlide();
-                    } else {
-                        this.prevSlide();
-                    }
+                    diff > 0 ? this.next() : this.prev();
                     this.resetAutoPlay();
                 }
             }, { passive: true });
         },
 
-        showSlide: function(index) {
-            // Обновляем слайды
+        showSlide(index) {
             this.slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
-
-            // Обновляем точки
             this.dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-
-            this.currentSlide = index;
+            this.current = index;
         },
 
-        nextSlide: function() {
-            const next = (this.currentSlide + 1) % this.totalSlides;
-            this.showSlide(next);
+        next() {
+            this.showSlide((this.current + 1) % this.total);
         },
 
-        prevSlide: function() {
-            const prev = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-            this.showSlide(prev);
+        prev() {
+            this.showSlide((this.current - 1 + this.total) % this.total);
         },
 
-        goToSlide: function(index) {
-            if (index >= 0 && index < this.totalSlides) {
+        goTo(index) {
+            if (index >= 0 && index < this.total) {
                 this.showSlide(index);
             }
         },
 
-        startAutoPlay: function() {
+        startAutoPlay() {
             if (this.interval) return;
-            this.interval = setInterval(() => this.nextSlide(), this.autoPlayDelay);
+            this.interval = setInterval(() => this.next(), this.delay);
         },
 
-        stopAutoPlay: function() {
+        stopAutoPlay() {
             if (this.interval) {
                 clearInterval(this.interval);
                 this.interval = null;
             }
         },
 
-        resetAutoPlay: function() {
+        resetAutoPlay() {
             this.stopAutoPlay();
             this.startAutoPlay();
         }
     };
 
     // ===========================================
-    // ПОИСК
+    // 🔍 ПОИСК С ЭФФЕКТАМИ
     // ===========================================
     const Search = {
         input: null,
         button: null,
-        typingText: null,
+        typing: null,
 
-        init: function() {
+        init() {
             this.input = document.getElementById('searchInput');
             this.button = document.getElementById('searchButton');
-            this.typingText = document.getElementById('typingText');
+            this.typing = document.getElementById('typingText');
 
             if (!this.input || !this.button) return;
 
             this.bindEvents();
-            console.log('Search: Инициализирован');
+            console.log('🔍 Search: готов');
         },
 
-        bindEvents: function() {
-            // Клик по кнопке поиска
+        bindEvents() {
             this.button.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.handleSearch();
+                this.search();
             });
 
-            // Enter в поле ввода
             this.input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    this.handleSearch();
+                    this.search();
                 }
             });
 
-            // Скрытие placeholder при фокусе
             this.input.addEventListener('focus', () => {
-                if (this.typingText) {
-                    this.typingText.style.opacity = '0';
-                }
+                if (this.typing) this.typing.style.opacity = '0';
             });
 
             this.input.addEventListener('blur', () => {
-                if (!this.input.value && this.typingText) {
-                    this.typingText.style.opacity = '0.7';
+                if (!this.input.value && this.typing) {
+                    this.typing.style.opacity = '0.8';
                 }
             });
 
-            // Скрываем typing text при вводе
             this.input.addEventListener('input', () => {
-                if (this.typingText) {
-                    this.typingText.style.opacity = this.input.value ? '0' : '0.7';
+                if (this.typing) {
+                    this.typing.style.opacity = this.input.value ? '0' : '0.8';
                 }
             });
         },
 
-        handleSearch: function() {
+        search() {
             const query = this.input.value.trim();
-
-            if (query.length > 0) {
-                // Переход на страницу результатов
+            if (query) {
                 window.location.href = 'pages/search-results.html?q=' + encodeURIComponent(query);
             } else {
                 this.input.focus();
-                this.input.classList.add('shake');
-                setTimeout(() => this.input.classList.remove('shake'), 500);
+                this.input.style.animation = 'shake 0.5s ease';
+                setTimeout(() => this.input.style.animation = '', 500);
             }
         }
     };
 
     // ===========================================
-    // КОРЗИНА
+    // 🛒 КОРЗИНА С АНИМАЦИЯМИ
     // ===========================================
     const Cart = {
         count: 0,
-        storageKey: 'cement_cart_count',
+        key: 'archin_cart',
 
-        init: function() {
-            // Загружаем из localStorage
-            const saved = localStorage.getItem(this.storageKey);
-            if (saved) {
-                this.count = parseInt(saved, 10) || 0;
-            }
+        init() {
+            const saved = localStorage.getItem(this.key);
+            if (saved) this.count = parseInt(saved, 10) || 0;
 
             this.updateDisplay();
             this.bindEvents();
-            console.log('Cart: Инициализирована, товаров:', this.count);
+            console.log('🛒 Cart: готов, товаров:', this.count);
         },
 
-        bindEvents: function() {
-            // Делегирование событий для кнопок "В корзину"
+        bindEvents() {
             document.addEventListener('click', (e) => {
-                const addBtn = e.target.closest('.btn-add-to-cart, .btn-add-to-cart-small');
-                if (addBtn) {
+                const btn = e.target.closest('.btn-add-to-cart, .btn-add-to-cart-small');
+                if (btn) {
                     e.preventDefault();
-                    this.addItem();
+                    this.add();
                 }
             });
         },
 
-        addItem: function(qty = 1) {
+        add(qty = 1) {
             this.count += qty;
             this.save();
             this.updateDisplay();
-            this.animateCart();
-            this.showNotification('Товар добавлен в корзину');
+            this.animate();
+            this.notify('✓ Товар добавлен в корзину');
         },
 
-        save: function() {
-            localStorage.setItem(this.storageKey, this.count.toString());
+        save() {
+            localStorage.setItem(this.key, this.count.toString());
         },
 
-        updateDisplay: function() {
-            const cartCounts = document.querySelectorAll('.cart-count');
-            cartCounts.forEach(el => {
+        updateDisplay() {
+            document.querySelectorAll('.cart-count').forEach(el => {
                 el.textContent = this.count;
                 el.style.display = this.count > 0 ? 'flex' : 'none';
             });
         },
 
-        animateCart: function() {
-            const cartCounts = document.querySelectorAll('.cart-count');
-            cartCounts.forEach(el => {
+        animate() {
+            document.querySelectorAll('.cart-count').forEach(el => {
                 el.classList.add('animate');
                 setTimeout(() => el.classList.remove('animate'), 500);
             });
         },
 
-        showNotification: function(message) {
-            // Создаём уведомление
+        notify(message) {
             const notification = document.createElement('div');
             notification.className = 'cart-notification';
-            notification.textContent = message;
+            notification.innerHTML = message;
             notification.style.cssText = `
                 position: fixed;
-                bottom: 80px;
-                right: 20px;
-                background: #4CAF50;
+                bottom: 100px;
+                right: 30px;
+                background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
                 color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-size: 14px;
-                font-weight: 500;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-size: 15px;
+                font-weight: 600;
                 z-index: 10000;
-                animation: slideIn 0.3s ease;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+                animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             `;
 
             document.body.appendChild(notification);
 
             setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
+                notification.style.animation = 'slideOutRight 0.3s ease forwards';
                 setTimeout(() => notification.remove(), 300);
-            }, 2000);
+            }, 2500);
         }
     };
 
     // ===========================================
-    // ЭФФЕКТ ПЕЧАТИ
+    // ✍️ ЭФФЕКТ ПЕЧАТИ
     // ===========================================
     const TypingEffect = {
         texts: [
-            "Портландцемент М500",
-            "Сухие смеси для стяжки",
-            "Гидрофобный цемент",
-            "Клей для плитки",
-            "Штукатурка гипсовая"
+            "Продукция ARCHIN 🏗️",
+            "Сухие смеси премиум-класса",
+            "Гарантия качества",
+            "Доставка по Москве",
+            "Официальный дилер"
         ],
         element: null,
-        currentIndex: 0,
+        index: 0,
         charIndex: 0,
         isDeleting: false,
         isPaused: false,
 
-        init: function() {
+        init() {
             this.element = document.getElementById('typingText');
             if (!this.element) return;
 
-            // Не запускаем, если есть фокус на поиске
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput && document.activeElement === searchInput) return;
+            const input = document.getElementById('searchInput');
+            if (input && document.activeElement === input) return;
 
             this.type();
-            console.log('TypingEffect: Запущен');
+            console.log('✍️ TypingEffect: запущен');
         },
 
-        type: function() {
+        type() {
             if (this.isPaused) return;
 
-            const currentText = this.texts[this.currentIndex];
+            const text = this.texts[this.index];
             
             if (this.isDeleting) {
                 this.charIndex--;
@@ -392,183 +363,198 @@
                 this.charIndex++;
             }
 
-            this.element.textContent = currentText.substring(0, this.charIndex);
+            this.element.textContent = text.substring(0, this.charIndex);
 
-            let delay = this.isDeleting ? 50 : 100;
+            let delay = this.isDeleting ? 40 : 80;
 
-            if (!this.isDeleting && this.charIndex === currentText.length) {
-                delay = 2000;
+            if (!this.isDeleting && this.charIndex === text.length) {
+                delay = 2500;
                 this.isDeleting = true;
             } else if (this.isDeleting && this.charIndex === 0) {
                 this.isDeleting = false;
-                this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-                delay = 500;
+                this.index = (this.index + 1) % this.texts.length;
+                delay = 400;
             }
 
             setTimeout(() => this.type(), delay);
-        },
-
-        pause: function() {
-            this.isPaused = true;
-        },
-
-        resume: function() {
-            if (this.isPaused) {
-                this.isPaused = false;
-                this.type();
-            }
         }
     };
 
     // ===========================================
-    // КНОПКА НАВЕРХ
+    // ⬆️ КНОПКА НАВЕРХ
     // ===========================================
     const ScrollToTop = {
         button: null,
-        threshold: 300,
+        threshold: 400,
 
-        init: function() {
+        init() {
             this.button = document.getElementById('scrollToTop');
             if (!this.button) return;
 
-            this.bindEvents();
-            this.checkVisibility();
-            console.log('ScrollToTop: Инициализирован');
-        },
-
-        bindEvents: function() {
-            // Клик по кнопке
             this.button.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Отслеживание скролла (с throttle)
             let ticking = false;
             window.addEventListener('scroll', () => {
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
-                        this.checkVisibility();
+                        this.button.classList.toggle('visible', window.scrollY > this.threshold);
                         ticking = false;
                     });
                     ticking = true;
                 }
             }, { passive: true });
-        },
 
-        checkVisibility: function() {
-            if (window.scrollY > this.threshold) {
-                this.button.classList.add('visible');
-            } else {
-                this.button.classList.remove('visible');
+            console.log('⬆️ ScrollToTop: готов');
+        }
+    };
+
+    // ===========================================
+    // 📜 ШАПКА ПРИ СКРОЛЛЕ
+    // ===========================================
+    const HeaderScroll = {
+        header: null,
+        threshold: 50,
+
+        init() {
+            this.header = document.querySelector('.main-header');
+            if (!this.header) return;
+
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        this.header.classList.toggle('scrolled', window.scrollY > this.threshold);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            console.log('📜 HeaderScroll: готов');
+        }
+    };
+
+    // ===========================================
+    // ✨ АНИМАЦИИ ПРИ СКРОЛЛЕ
+    // ===========================================
+    const ScrollAnimations = {
+        elements: [],
+        
+        init() {
+            // Добавляем класс для анимации к секциям
+            const selectors = [
+                '.category-item',
+                '.product-card',
+                '.promotion-item',
+                '.news-item',
+                '.section-header',
+                '.certificate-image-wrapper'
+            ];
+            
+            selectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach((el, i) => {
+                    el.classList.add('fade-in-up');
+                    el.style.transitionDelay = `${i * 0.1}s`;
+                    this.elements.push(el);
+                });
+            });
+
+            if (!this.elements.length) return;
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            this.elements.forEach(el => observer.observe(el));
+
+            console.log('✨ ScrollAnimations: готов');
+        }
+    };
+
+    // ===========================================
+    // 🔢 СЕЛЕКТОР КОЛИЧЕСТВА
+    // ===========================================
+    const QuantitySelector = {
+        init() {
+            document.addEventListener('click', (e) => {
+                const minus = e.target.closest('.qty-btn.minus');
+                const plus = e.target.closest('.qty-btn.plus');
+
+                if (minus) {
+                    e.preventDefault();
+                    const input = minus.closest('.quantity-selector')?.querySelector('.qty-input');
+                    if (input) {
+                        const min = parseInt(input.min) || 1;
+                        const val = parseInt(input.value) || 1;
+                        if (val > min) input.value = val - 1;
+                    }
+                }
+
+                if (plus) {
+                    e.preventDefault();
+                    const input = plus.closest('.quantity-selector')?.querySelector('.qty-input');
+                    if (input) {
+                        const max = parseInt(input.max) || 9999;
+                        const val = parseInt(input.value) || 1;
+                        if (val < max) input.value = val + 1;
+                    }
+                }
+            });
+
+            console.log('🔢 QuantitySelector: готов');
+        }
+    };
+
+    // ===========================================
+    // 📦 КНОПКА КАТАЛОГА
+    // ===========================================
+    const CatalogButton = {
+        init() {
+            const btn = document.querySelector('.catalog-btn');
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'pages/catalog.html';
+                });
             }
         }
     };
 
     // ===========================================
-    // АКЦИИ
+    // 🎁 КНОПКА АКЦИЙ
     // ===========================================
-    const Promotions = {
-        init: function() {
+    const PromotionsButton = {
+        init() {
             const btn = document.querySelector('.promotions-btn');
             if (btn) {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    // Прокрутка к секции акций
                     const section = document.querySelector('.promotions-section');
                     if (section) {
                         section.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
-                console.log('Promotions: Кнопка инициализирована');
             }
         }
     };
 
     // ===========================================
-    // КАТАЛОГ (Dropdown)
-    // ===========================================
-    const CatalogDropdown = {
-        btn: null,
-        menu: null,
-        isOpen: false,
-
-        init: function() {
-            this.btn = document.querySelector('.catalog-btn');
-            this.menu = document.querySelector('.categories-section.mini-catalog');
-
-            if (!this.btn) return;
-
-            this.btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Переход на страницу каталога
-                window.location.href = 'pages/catalog.html';
-            });
-
-            console.log('CatalogDropdown: Инициализирован');
-        },
-
-        toggle: function() {
-            this.isOpen = !this.isOpen;
-            if (this.menu) {
-                this.menu.classList.toggle('active', this.isOpen);
-            }
-        },
-
-        close: function() {
-            this.isOpen = false;
-            if (this.menu) {
-                this.menu.classList.remove('active');
-            }
-        }
-    };
-
-    // ===========================================
-    // СЕЛЕКТОР КОЛИЧЕСТВА
-    // ===========================================
-    const QuantitySelector = {
-        init: function() {
-            document.addEventListener('click', (e) => {
-                // Кнопка минус
-                if (e.target.closest('.qty-btn.minus')) {
-                    e.preventDefault();
-                    const input = e.target.closest('.quantity-selector').querySelector('.qty-input');
-                    if (input) {
-                        const min = parseInt(input.min) || 1;
-                        const current = parseInt(input.value) || 1;
-                        if (current > min) {
-                            input.value = current - 1;
-                        }
-                    }
-                }
-
-                // Кнопка плюс
-                if (e.target.closest('.qty-btn.plus')) {
-                    e.preventDefault();
-                    const input = e.target.closest('.quantity-selector').querySelector('.qty-input');
-                    if (input) {
-                        const max = parseInt(input.max) || 9999;
-                        const current = parseInt(input.value) || 1;
-                        if (current < max) {
-                            input.value = current + 1;
-                        }
-                    }
-                }
-            });
-
-            console.log('QuantitySelector: Инициализирован');
-        }
-    };
-
-    // ===========================================
-    // CSS АНИМАЦИИ (добавляем динамически)
+    // 🎬 CSS АНИМАЦИИ
     // ===========================================
     const styles = document.createElement('style');
     styles.textContent = `
-        @keyframes slideIn {
+        @keyframes slideInRight {
             from {
                 transform: translateX(100%);
                 opacity: 0;
@@ -579,7 +565,7 @@
             }
         }
 
-        @keyframes slideOut {
+        @keyframes slideOutRight {
             from {
                 transform: translateX(0);
                 opacity: 1;
@@ -592,30 +578,21 @@
 
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-6px); }
+            80% { transform: translateX(6px); }
         }
 
-        .shake {
-            animation: shake 0.3s ease;
+        body:not(.loaded) * {
+            transition: none !important;
         }
     `;
     document.head.appendChild(styles);
 
     // ===========================================
-    // ОБРАБОТКА ОШИБОК
+    // 🚀 ЗАПУСК
     // ===========================================
-    window.addEventListener('error', function(e) {
-        console.error('JS Error:', e.message);
-    });
-
-    window.addEventListener('unhandledrejection', function(e) {
-        console.error('Promise Error:', e.reason);
-    });
-
-    // ===========================================
-    // ЗАПУСК
-    // ===========================================
-    CementApp.init();
+    App.init();
 
 })();

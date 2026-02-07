@@ -1,0 +1,205 @@
+/* МОБИЛЬНЫЕ ИСПРАВЛЕНИЯ - КРИТИЧНО */
+
+/* Базовые настройки для мобилок */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+    
+    /* Header мобильный */
+    .main-header {
+        padding: 10px 0;
+    }
+    
+    .main-header .container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 20px;
+    }
+    
+    .logo-primary,
+    .logo-secondary {
+        font-size: 18px;
+    }
+    
+    .dealer-badge {
+        font-size: 9px !important;
+        margin-top: -3px !important;
+    }
+    
+    /* Кнопки header */
+    .catalog-btn,
+    .promotions-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    /* Поиск на мобилке */
+    .search-container {
+        width: 100%;
+        order: 5;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+    
+    /* Иконки header */
+    .header-icons {
+        gap: 10px;
+    }
+    
+    .icon-label {
+        display: none; /* Скрываем подписи на мобилке */
+    }
+    
+    /* Слайдер на мобилке */
+    .slider-section {
+        padding: 20px 0;
+    }
+    
+    .slide-text h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    
+    .slide-text p {
+        font-size: 14px;
+    }
+    
+    .slider-side-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    /* Сертификат на мобилке */
+    .certificate-section {
+        padding: 40px 0 !important;
+    }
+    
+    .certificate-section h2 {
+        font-size: 24px !important;
+    }
+    
+    .certificate-section p {
+        font-size: 14px !important;
+    }
+    
+    /* Категории на мобилке */
+    .categories-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    /* Footer на мобилке */
+    .footer-columns {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+}
+
+/* Очень маленькие экраны (iPhone SE, etc) */
+@media (max-width: 375px) {
+    .logo h1 {
+        font-size: 16px;
+    }
+    
+    .slide-text h2 {
+        font-size: 20px;
+    }
+    
+    .btn-slider,
+    .btn-promotion {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .certificate-section h2 {
+        font-size: 20px !important;
+    }
+}
+
+/* Фикс для всех интерактивных элементов */
+button,
+a,
+.icon-link,
+.category-item,
+.product-card {
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+/* Убираем анимации на мобилке для производительности */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Улучшаем читаемость на мобилке */
+@media (max-width: 768px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 18px; }
+    
+    p {
+        line-height: 1.6;
+    }
+    
+    /* Кнопки должны быть достаточно большими для тапа */
+    button,
+    .btn-slider,
+    .btn-promotion,
+    a.icon-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Скрываем элементы на мобилке */
+@media (max-width: 768px) {
+    .mini-header-links {
+        display: none; /* Верхнее меню */
+    }
+    
+    .typing-text {
+        display: none; /* Анимированный текст */
+    }
+}
+
+/* Hamburger menu (если нужно) */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #333;
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+}
