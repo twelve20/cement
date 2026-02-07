@@ -826,27 +826,45 @@ img {
 .certificate-section {
     background: #f9f9f9;
     padding: 50px 0;
+    text-align: center;
 }
 
 .certificate-section h2 {
     font-size: 28px;
     margin-bottom: 15px;
     color: #333;
-    text-align: center;
 }
 
-.certificate-section p {
+.certificate-section > .container > p {
     font-size: 16px;
     color: #666;
-    text-align: center;
     max-width: 800px;
     margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.certificate-image-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .certificate-section img {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.certificate-cta {
+    margin-top: 30px;
+}
+
+.certificate-cta .btn {
+    padding: 14px 35px;
+    font-size: 15px;
 }
 
 @media (max-width: 768px) {
@@ -858,9 +876,19 @@ img {
         font-size: 24px;
     }
     
-    .certificate-section p {
+    .certificate-section > .container > p {
         font-size: 14px;
         padding: 0 15px;
+    }
+    
+    .certificate-image-wrapper {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    
+    .certificate-cta .btn {
+        padding: 12px 25px;
+        font-size: 14px;
     }
 }
 
@@ -871,6 +899,16 @@ img {
     
     .certificate-section h2 {
         font-size: 20px;
+    }
+    
+    .certificate-image-wrapper {
+        padding: 10px;
+    }
+    
+    .certificate-cta .btn {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
     }
 }
 

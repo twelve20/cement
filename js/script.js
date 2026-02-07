@@ -1,361 +1,621 @@
-const CementApp = {
-    init: function () {
-        // Инициализация используемых компонентов
-        if (typeof Slider !== 'undefined') Slider.init();
-        if (typeof Search !== 'undefined') Search.init();
-        if (typeof Cart !== 'undefined') Cart.init();
-        if (typeof Catalog !== 'undefined') Catalog.init();
-        if (typeof Promotions !== 'undefined') Promotions.init();
-        if (typeof TypingEffect !== 'undefined') TypingEffect.init();
-        if (typeof ScrollToTop !== 'undefined') ScrollToTop.init();
+/**
+ * CEMENT SITE - Главный JavaScript файл
+ * Все модули собраны здесь для надёжной работы
+ */
 
-        // Привязка общих событий
-        this.bindGlobalEvents();
-    },
+(function() {
+    'use strict';
 
-    bindGlobalEvents: function () {
-        // Плавная прокрутка для якорных ссылок
-        document.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A' && e.target.getAttribute('href') && e.target.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
+    // ===========================================
+    // ГЛАВНОЕ ПРИЛОЖЕНИЕ
+    // ===========================================
+    const CementApp = {
+        init: function() {
+            console.log('CementApp: Инициализация...');
+            
+            // Ждём полной загрузки DOM
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => this.start());
+            } else {
+                this.start();
             }
-        });
-    }
-};
+        },
 
-// ==================== СЛАЙДЕР ====================
-const Slider = {
-    currentSlide: 0,
-    slides: [],
-    dots: [],
-    progressElement: null,
-    totalSlides: 0,
-    interval: null,
-    prevBtn: null,
-    nextBtn: null,
+        start: function() {
+            // Инициализация всех модулей
+            Slider.init();
+            Search.init();
+            Cart.init();
+            TypingEffect.init();
+            ScrollToTop.init();
+            Promotions.init();
+            CatalogDropdown.init();
+            QuantitySelector.init();
+            
+            // Глобальные обработчики
+            this.bindGlobalEvents();
+            
+            console.log('CementApp: Готово!');
+        },
 
-    init: function () {
-        this.slides = document.querySelectorAll('.slider-item');
-        this.dots = document.querySelectorAll('.pagination-dot');
-        this.progressElement = document.querySelector('.pagination-progress');
-        this.totalSlides = this.slides.length;
-        this.prevBtn = document.querySelector('.prev-side-btn');
-        this.nextBtn = document.querySelector('.next-side-btn');
+        bindGlobalEvents: function() {
+            // Плавная прокрутка для якорных ссылок
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a[href^="#"]');
+                if (link) {
+                    const targetId = link.getAttribute('href').substring(1);
+                    if (targetId) {
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                }
+            });
+        }
+    };
 
-        if (this.slides.length > 0) {
+    // ===========================================
+    // СЛАЙДЕР
+    // ===========================================
+    const Slider = {
+        currentSlide: 0,
+        slides: [],
+        dots: [],
+        totalSlides: 0,
+        interval: null,
+        autoPlayDelay: 5000,
+
+        init: function() {
+            this.slides = document.querySelectorAll('.slider-item');
+            this.dots = document.querySelectorAll('.pagination-dot');
+            this.totalSlides = this.slides.length;
+
+            if (this.totalSlides === 0) return;
+
             this.setupNavigation();
-            this.updatePagination();
+            this.showSlide(0);
+            this.startAutoPlay();
+            
+            console.log('Slider: Инициализировано, слайдов:', this.totalSlides);
+        },
+
+        setupNavigation: function() {
+            // Кнопки навигации
+            const prevBtn = document.querySelector('.prev-side-btn');
+            const nextBtn = document.querySelector('.next-side-btn');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.prevSlide();
+                    this.resetAutoPlay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.nextSlide();
+                    this.resetAutoPlay();
+                });
+            }
+
+            // Точки пагинации
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.goToSlide(index);
+                    this.resetAutoPlay();
+                });
+            });
+
+            // Пауза при наведении
+            const container = document.querySelector('.slider-container');
+            if (container) {
+                container.addEventListener('mouseenter', () => this.stopAutoPlay());
+                container.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+
+            // Свайп на мобильных
+            this.setupTouchEvents();
+        },
+
+        setupTouchEvents: function() {
+            const wrapper = document.querySelector('.slider-wrapper');
+            if (!wrapper) return;
+
+            let startX = 0;
+            let endX = 0;
+
+            wrapper.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            wrapper.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                    this.resetAutoPlay();
+                }
+            }, { passive: true });
+        },
+
+        showSlide: function(index) {
+            // Обновляем слайды
+            this.slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+
+            // Обновляем точки
+            this.dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            this.currentSlide = index;
+        },
+
+        nextSlide: function() {
+            const next = (this.currentSlide + 1) % this.totalSlides;
+            this.showSlide(next);
+        },
+
+        prevSlide: function() {
+            const prev = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+            this.showSlide(prev);
+        },
+
+        goToSlide: function(index) {
+            if (index >= 0 && index < this.totalSlides) {
+                this.showSlide(index);
+            }
+        },
+
+        startAutoPlay: function() {
+            if (this.interval) return;
+            this.interval = setInterval(() => this.nextSlide(), this.autoPlayDelay);
+        },
+
+        stopAutoPlay: function() {
+            if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
+        },
+
+        resetAutoPlay: function() {
+            this.stopAutoPlay();
             this.startAutoPlay();
         }
-    },
+    };
 
-    setupNavigation: function () {
-        // Кнопки по бокам
-        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
-        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+    // ===========================================
+    // ПОИСК
+    // ===========================================
+    const Search = {
+        input: null,
+        button: null,
+        typingText: null,
 
-        // Точки пагинации
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.goToSlide(index));
-        });
-    },
+        init: function() {
+            this.input = document.getElementById('searchInput');
+            this.button = document.getElementById('searchButton');
+            this.typingText = document.getElementById('typingText');
 
-    nextSlide: function () {
-        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-        this.updateSlider();
-        this.updatePagination();
-    },
+            if (!this.input || !this.button) return;
 
-    prevSlide: function () {
-        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.updateSlider();
-        this.updatePagination();
-    },
-
-    goToSlide: function (index) {
-        this.currentSlide = index;
-        this.updateSlider();
-        this.updatePagination();
-    },
-
-    updateSlider: function () {
-        // Обновление слайдов
-        this.slides.forEach(slide => slide.classList.remove('active'));
-        this.slides[this.currentSlide].classList.add('active');
-    },
-
-    updatePagination: function () {
-        // Обновление точек
-        this.dots.forEach(dot => dot.classList.remove('active'));
-        if (this.dots[this.currentSlide]) {
-            this.dots[this.currentSlide].classList.add('active');
-        }
-
-        // Обновление прогресс-бара
-        if (this.progressElement) {
-            const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
-            this.progressElement.style.width = `${progress}%`;
-        }
-    },
-
-    startAutoPlay: function () {
-        if (this.interval) clearInterval(this.interval);
-        this.interval = setInterval(() => this.nextSlide(), 5000);
-    }
-};
-
-// ==================== ПОИСК ====================
-const Search = {
-    searchInput: null,
-    searchButton: null,
-    typingText: null,
-
-    init: function () {
-        this.searchInput = document.getElementById('searchInput');
-        this.searchButton = document.getElementById('searchButton');
-        this.typingText = document.getElementById('typingText');
-
-        if (this.searchInput && this.searchButton) {
             this.bindEvents();
-        }
-    },
+            console.log('Search: Инициализирован');
+        },
 
-    bindEvents: function () {
-        this.searchButton.addEventListener('click', () => this.handleSearch());
-        this.searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.handleSearch();
-        });
+        bindEvents: function() {
+            // Клик по кнопке поиска
+            this.button.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleSearch();
+            });
 
-        this.searchInput.addEventListener('focus', () => {
-            if (this.typingText) {
-                this.typingText.style.opacity = '0';
+            // Enter в поле ввода
+            this.input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.handleSearch();
+                }
+            });
+
+            // Скрытие placeholder при фокусе
+            this.input.addEventListener('focus', () => {
+                if (this.typingText) {
+                    this.typingText.style.opacity = '0';
+                }
+            });
+
+            this.input.addEventListener('blur', () => {
+                if (!this.input.value && this.typingText) {
+                    this.typingText.style.opacity = '0.7';
+                }
+            });
+
+            // Скрываем typing text при вводе
+            this.input.addEventListener('input', () => {
+                if (this.typingText) {
+                    this.typingText.style.opacity = this.input.value ? '0' : '0.7';
+                }
+            });
+        },
+
+        handleSearch: function() {
+            const query = this.input.value.trim();
+
+            if (query.length > 0) {
+                // Переход на страницу результатов
+                window.location.href = 'pages/search-results.html?q=' + encodeURIComponent(query);
+            } else {
+                this.input.focus();
+                this.input.classList.add('shake');
+                setTimeout(() => this.input.classList.remove('shake'), 500);
             }
-        });
+        }
+    };
 
-        this.searchInput.addEventListener('blur', () => {
-            if (!this.searchInput.value && this.typingText) {
-                this.typingText.style.opacity = '0.7';
+    // ===========================================
+    // КОРЗИНА
+    // ===========================================
+    const Cart = {
+        count: 0,
+        storageKey: 'cement_cart_count',
+
+        init: function() {
+            // Загружаем из localStorage
+            const saved = localStorage.getItem(this.storageKey);
+            if (saved) {
+                this.count = parseInt(saved, 10) || 0;
             }
-        });
-    },
 
-    handleSearch: function () {
-        const query = this.searchInput.value.trim();
+            this.updateDisplay();
+            this.bindEvents();
+            console.log('Cart: Инициализирована, товаров:', this.count);
+        },
 
-        if (query.length > 0) {
-            this.performSearch(query);
-        } else {
-            this.showError('Пожалуйста, введите поисковый запрос');
-        }
-    },
+        bindEvents: function() {
+            // Делегирование событий для кнопок "В корзину"
+            document.addEventListener('click', (e) => {
+                const addBtn = e.target.closest('.btn-add-to-cart, .btn-add-to-cart-small');
+                if (addBtn) {
+                    e.preventDefault();
+                    this.addItem();
+                }
+            });
+        },
 
-    performSearch: function (query) {
-        console.log('Поиск:', query);
-        // Имитация результатов
-        const results = this.getMockResults(query);
-        this.showResults(results, query);
-    },
+        addItem: function(qty = 1) {
+            this.count += qty;
+            this.save();
+            this.updateDisplay();
+            this.animateCart();
+            this.showNotification('Товар добавлен в корзину');
+        },
 
-    getMockResults: function (query) {
-        const mockData = [
-            'Портландцемент М500',
-            'Сухая смесь для стяжки',
-            'Гидрофобный цемент',
-            'Клей для плитки',
-            'Штукатурка гипсовая',
-            'Пескобетон М300',
-            'Цемент белый М400',
-            'Самовыравнивающаяся смесь'
-        ];
+        save: function() {
+            localStorage.setItem(this.storageKey, this.count.toString());
+        },
 
-        return mockData.filter(item =>
-            item.toLowerCase().includes(query.toLowerCase())
-        );
-    },
+        updateDisplay: function() {
+            const cartCounts = document.querySelectorAll('.cart-count');
+            cartCounts.forEach(el => {
+                el.textContent = this.count;
+                el.style.display = this.count > 0 ? 'flex' : 'none';
+            });
+        },
 
-    showResults: function (results, query) {
-        if (results.length > 0) {
-            alert(`Найдено ${results.length} результатов по запросу "${query}"`);
-        } else {
-            alert(`По запросу "${query}" ничего не найдено`);
-        }
-    },
+        animateCart: function() {
+            const cartCounts = document.querySelectorAll('.cart-count');
+            cartCounts.forEach(el => {
+                el.classList.add('animate');
+                setTimeout(() => el.classList.remove('animate'), 500);
+            });
+        },
 
-    showError: function (message) {
-        alert(message);
-        if (this.searchInput) this.searchInput.focus();
-    }
-};
+        showNotification: function(message) {
+            // Создаём уведомление
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 80px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
 
-// ==================== КОРЗИНА ====================
-const Cart = {
-    count: 0,
+            document.body.appendChild(notification);
 
-    init: function () {
-        this.updateDisplay();
-        this.bindEvents();
-    },
-
-    bindEvents: function () {
-        // Обработчики будут привязаны в ProductCard или на странице каталога
-    },
-
-    addToCart: function () {
-        this.count++;
-        this.updateDisplay();
-        this.animateCart();
-        this.showNotification('Товар добавлен в корзину');
-    },
-
-    updateDisplay: function () {
-        const cartCountElements = document.querySelectorAll('.cart-count');
-        cartCountElements.forEach(element => {
-            element.textContent = this.count;
-            element.style.display = this.count > 0 ? 'flex' : 'none';
-        });
-    },
-
-    animateCart: function () {
-        const cartCountElements = document.querySelectorAll('.cart-count');
-        cartCountElements.forEach(element => {
-            element.classList.add('animate');
             setTimeout(() => {
-                element.classList.remove('animate');
-            }, 600);
-        });
-    },
-
-    showNotification: function (message) {
-        console.log(message);
-    }
-};
-
-
-// ==================== КАТАЛОГ ====================
-const Catalog = {
-    init: function () {
-        const catalogBtn = document.querySelector('.catalog-btn');
-        if (catalogBtn) {
-            catalogBtn.addEventListener('click', () => this.show());
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
         }
-    },
+    };
 
-    show: function () {
-        window.location.href = 'pages/catalog.html';
-    }
-};
+    // ===========================================
+    // ЭФФЕКТ ПЕЧАТИ
+    // ===========================================
+    const TypingEffect = {
+        texts: [
+            "Портландцемент М500",
+            "Сухие смеси для стяжки",
+            "Гидрофобный цемент",
+            "Клей для плитки",
+            "Штукатурка гипсовая"
+        ],
+        element: null,
+        currentIndex: 0,
+        charIndex: 0,
+        isDeleting: false,
+        isPaused: false,
 
-// ==================== АКЦИИ ====================
-const Promotions = {
-    init: function () {
-        const promotionsBtn = document.querySelector('.promotions-btn');
-        if (promotionsBtn) {
-            promotionsBtn.addEventListener('click', () => this.show());
+        init: function() {
+            this.element = document.getElementById('typingText');
+            if (!this.element) return;
+
+            // Не запускаем, если есть фокус на поиске
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput && document.activeElement === searchInput) return;
+
+            this.type();
+            console.log('TypingEffect: Запущен');
+        },
+
+        type: function() {
+            if (this.isPaused) return;
+
+            const currentText = this.texts[this.currentIndex];
+            
+            if (this.isDeleting) {
+                this.charIndex--;
+            } else {
+                this.charIndex++;
+            }
+
+            this.element.textContent = currentText.substring(0, this.charIndex);
+
+            let delay = this.isDeleting ? 50 : 100;
+
+            if (!this.isDeleting && this.charIndex === currentText.length) {
+                delay = 2000;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.charIndex === 0) {
+                this.isDeleting = false;
+                this.currentIndex = (this.currentIndex + 1) % this.texts.length;
+                delay = 500;
+            }
+
+            setTimeout(() => this.type(), delay);
+        },
+
+        pause: function() {
+            this.isPaused = true;
+        },
+
+        resume: function() {
+            if (this.isPaused) {
+                this.isPaused = false;
+                this.type();
+            }
         }
-    },
+    };
 
-    show: function () {
-        window.location.href = 'pages/promotions.html';
-    }
-};
+    // ===========================================
+    // КНОПКА НАВЕРХ
+    // ===========================================
+    const ScrollToTop = {
+        button: null,
+        threshold: 300,
 
-// ==================== ЭФФЕКТ ПЕЧАТИ ====================
-const TypingEffect = {
-    texts: [
-        "Портландцемент М500",
-        "Сухие смеси для стяжки",
-        "Гидрофобный цемент",
-        "Клей для плитки",
-        "Штукатурка гипсовая"
-    ],
-    currentText: '',
-    currentTextIndex: 0,
-    charIndex: 0,
-    isDeleting: false,
-    typingElement: null,
+        init: function() {
+            this.button = document.getElementById('scrollToTop');
+            if (!this.button) return;
 
-    init: function () {
-        this.typingElement = document.getElementById('typingText');
-        if (this.typingElement) {
-            this.start();
-        }
-    },
-
-    start: function () {
-        const currentText = this.texts[this.currentTextIndex];
-
-        if (!this.isDeleting && this.charIndex < currentText.length) {
-            this.currentText = currentText.substring(0, this.charIndex + 1);
-            this.charIndex++;
-            setTimeout(() => this.start(), 100);
-        } else if (this.isDeleting && this.charIndex > 0) {
-            this.currentText = currentText.substring(0, this.charIndex - 1);
-            this.charIndex--;
-            setTimeout(() => this.start(), 50);
-        } else if (!this.isDeleting && this.charIndex === currentText.length) {
-            this.isDeleting = true;
-            setTimeout(() => this.start(), 2000);
-        } else if (this.isDeleting && this.charIndex === 0) {
-            this.isDeleting = false;
-            this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length;
-            setTimeout(() => this.start(), 500);
-        }
-
-        this.updateDisplay();
-    },
-
-    updateDisplay: function () {
-        if (this.typingElement) {
-            this.typingElement.textContent = this.currentText;
-        }
-    }
-};
-
-// ==================== КНОПКА НАВЕРХ ====================
-const ScrollToTop = {
-    button: null,
-
-    init: function () {
-        this.button = document.getElementById('scrollToTop');
-        if (this.button) {
             this.bindEvents();
             this.checkVisibility();
+            console.log('ScrollToTop: Инициализирован');
+        },
+
+        bindEvents: function() {
+            // Клик по кнопке
+            this.button.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Отслеживание скролла (с throttle)
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        this.checkVisibility();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        },
+
+        checkVisibility: function() {
+            if (window.scrollY > this.threshold) {
+                this.button.classList.add('visible');
+            } else {
+                this.button.classList.remove('visible');
+            }
         }
-    },
+    };
 
-    bindEvents: function () {
-        this.button.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        window.addEventListener('scroll', () => {
-            this.checkVisibility();
-        });
-    },
-
-    checkVisibility: function () {
-        if (this.button) {
-            this.button.classList.toggle('visible', window.scrollY > 300);
+    // ===========================================
+    // АКЦИИ
+    // ===========================================
+    const Promotions = {
+        init: function() {
+            const btn = document.querySelector('.promotions-btn');
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Прокрутка к секции акций
+                    const section = document.querySelector('.promotions-section');
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+                console.log('Promotions: Кнопка инициализирована');
+            }
         }
-    }
-};
+    };
 
+    // ===========================================
+    // КАТАЛОГ (Dropdown)
+    // ===========================================
+    const CatalogDropdown = {
+        btn: null,
+        menu: null,
+        isOpen: false,
 
-// ==================== ИНИЦИАЛИЗАЦИЯ ====================
-document.addEventListener('DOMContentLoaded', function () {
+        init: function() {
+            this.btn = document.querySelector('.catalog-btn');
+            this.menu = document.querySelector('.categories-section.mini-catalog');
+
+            if (!this.btn) return;
+
+            this.btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Переход на страницу каталога
+                window.location.href = 'pages/catalog.html';
+            });
+
+            console.log('CatalogDropdown: Инициализирован');
+        },
+
+        toggle: function() {
+            this.isOpen = !this.isOpen;
+            if (this.menu) {
+                this.menu.classList.toggle('active', this.isOpen);
+            }
+        },
+
+        close: function() {
+            this.isOpen = false;
+            if (this.menu) {
+                this.menu.classList.remove('active');
+            }
+        }
+    };
+
+    // ===========================================
+    // СЕЛЕКТОР КОЛИЧЕСТВА
+    // ===========================================
+    const QuantitySelector = {
+        init: function() {
+            document.addEventListener('click', (e) => {
+                // Кнопка минус
+                if (e.target.closest('.qty-btn.minus')) {
+                    e.preventDefault();
+                    const input = e.target.closest('.quantity-selector').querySelector('.qty-input');
+                    if (input) {
+                        const min = parseInt(input.min) || 1;
+                        const current = parseInt(input.value) || 1;
+                        if (current > min) {
+                            input.value = current - 1;
+                        }
+                    }
+                }
+
+                // Кнопка плюс
+                if (e.target.closest('.qty-btn.plus')) {
+                    e.preventDefault();
+                    const input = e.target.closest('.quantity-selector').querySelector('.qty-input');
+                    if (input) {
+                        const max = parseInt(input.max) || 9999;
+                        const current = parseInt(input.value) || 1;
+                        if (current < max) {
+                            input.value = current + 1;
+                        }
+                    }
+                }
+            });
+
+            console.log('QuantitySelector: Инициализирован');
+        }
+    };
+
+    // ===========================================
+    // CSS АНИМАЦИИ (добавляем динамически)
+    // ===========================================
+    const styles = document.createElement('style');
+    styles.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.3s ease;
+        }
+    `;
+    document.head.appendChild(styles);
+
+    // ===========================================
+    // ОБРАБОТКА ОШИБОК
+    // ===========================================
+    window.addEventListener('error', function(e) {
+        console.error('JS Error:', e.message);
+    });
+
+    window.addEventListener('unhandledrejection', function(e) {
+        console.error('Promise Error:', e.reason);
+    });
+
+    // ===========================================
+    // ЗАПУСК
+    // ===========================================
     CementApp.init();
-});
 
-// ==================== ОБРАБОТКА ОШИБОК ====================
-window.addEventListener('error', function (e) {
-    console.error('Application error:', e.error);
-});
-
-window.addEventListener('unhandledrejection', function (e) {
-    console.error('Unhandled promise rejection:', e.reason);
-});
+})();
