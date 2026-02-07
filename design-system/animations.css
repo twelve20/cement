@@ -1,164 +1,560 @@
 /**
- * АНИМАЦИИ
- * Плавные, производительные, минималистичные
+ * ARCHIN Design System - Animations
+ * ===================================
+ * Система анимаций для премиум UX
+ * Плавные, ненавязчивые переходы
  */
 
 :root {
-    /* Timing functions */
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    /* Durations */
-    --duration-fast: 150ms;
-    --duration-normal: 300ms;
-    --duration-slow: 500ms;
+  /* ===========================================
+   * TIMING FUNCTIONS
+   * Кривые анимации (easing)
+   * =========================================== */
+  
+  /* Стандартная - для большинства переходов */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Ускорение - для элементов, уходящих со сцены */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* Замедление - для элементов, появляющихся */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  
+  /* Ускорение-замедление - для элементов, двигающихся по экрану */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spring - упругий эффект для интерактивных элементов */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Bounce - для привлечения внимания */
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  
+  /* ===========================================
+   * DURATIONS
+   * Длительности анимаций
+   * =========================================== */
+  
+  /* Быстрая - hover, focus, мелкие изменения */
+  --duration-fast: 150ms;
+  
+  /* Нормальная - переходы состояний, открытие */
+  --duration-normal: 300ms;
+  
+  /* Медленная - сложные анимации, модалки */
+  --duration-slow: 500ms;
+  
+  /* Очень медленная - hero анимации, page transitions */
+  --duration-slower: 700ms;
+  
+  /* ===========================================
+   * TRANSITIONS
+   * Готовые transition для CSS
+   * =========================================== */
+  
+  /* Базовый transition для интерактивных элементов */
+  --transition-base: all var(--duration-fast) var(--ease-default);
+  
+  /* Цвета (background, color, border) */
+  --transition-colors: color var(--duration-fast) var(--ease-default),
+                       background-color var(--duration-fast) var(--ease-default),
+                       border-color var(--duration-fast) var(--ease-default);
+  
+  /* Трансформации */
+  --transition-transform: transform var(--duration-normal) var(--ease-default);
+  
+  /* Opacity */
+  --transition-opacity: opacity var(--duration-normal) var(--ease-default);
+  
+  /* Тени */
+  --transition-shadow: box-shadow var(--duration-normal) var(--ease-default);
+  
+  /* Всё вместе - для карточек, кнопок */
+  --transition-all: all var(--duration-normal) var(--ease-default);
 }
 
-/* Базовые transitions */
-* {
-    transition-timing-function: var(--ease-in-out);
+/* ===========================================
+ * TRANSITION UTILITIES
+ * Классы для добавления transitions
+ * =========================================== */
+
+.transition-none { transition: none; }
+.transition-all { transition: var(--transition-all); }
+.transition-colors { transition: var(--transition-colors); }
+.transition-opacity { transition: var(--transition-opacity); }
+.transition-transform { transition: var(--transition-transform); }
+.transition-shadow { transition: var(--transition-shadow); }
+
+/* Duration modifiers */
+.duration-fast { transition-duration: var(--duration-fast); }
+.duration-normal { transition-duration: var(--duration-normal); }
+.duration-slow { transition-duration: var(--duration-slow); }
+.duration-slower { transition-duration: var(--duration-slower); }
+
+/* Easing modifiers */
+.ease-default { transition-timing-function: var(--ease-default); }
+.ease-in { transition-timing-function: var(--ease-in); }
+.ease-out { transition-timing-function: var(--ease-out); }
+.ease-in-out { transition-timing-function: var(--ease-in-out); }
+.ease-spring { transition-timing-function: var(--ease-spring); }
+
+/* ===========================================
+ * HOVER STATES
+ * Состояния при наведении
+ * =========================================== */
+
+/* Lift - подъём с тенью */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default);
 }
 
-/* Hover/Focus states */
-a, button, .btn {
-    transition: all var(--duration-normal) var(--ease-in-out);
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Fade in animations */
+/* Scale - небольшое увеличение */
+.hover-scale {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Glow - свечение */
+.hover-glow {
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(26, 95, 42, 0.3);
+}
+
+/* Darken - затемнение */
+.hover-darken {
+  transition: filter var(--duration-fast) var(--ease-default);
+}
+
+.hover-darken:hover {
+  filter: brightness(0.95);
+}
+
+/* Brighten - осветление */
+.hover-brighten {
+  transition: filter var(--duration-fast) var(--ease-default);
+}
+
+.hover-brighten:hover {
+  filter: brightness(1.05);
+}
+
+/* ===========================================
+ * FOCUS STATES
+ * Состояния при фокусе (accessibility)
+ * =========================================== */
+
+.focus-ring {
+  transition: box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-primary),
+              0 0 0 4px var(--color-primary);
+}
+
+/* ===========================================
+ * ACTIVE STATES
+ * Состояния при клике
+ * =========================================== */
+
+.active-press {
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.active-press:active {
+  transform: scale(0.98);
+}
+
+/* ===========================================
+ * KEYFRAME ANIMATIONS
+ * Определения анимаций
+ * =========================================== */
+
+/* Fade In - появление */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+/* Fade Out - исчезновение */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade In Up - появление снизу */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+/* Fade In Down - появление сверху */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Scale animations */
+/* Fade In Left - появление слева */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right - появление справа */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide Up - выезд снизу */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Slide Down - выезд сверху */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Scale In - появление с масштабом */
 @keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Slide animations */
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Scale Out - исчезновение с масштабом */
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Spin - вращение (для лоадеров) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Pulse */
+/* Pulse - пульсация */
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.8;
-    }
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-/* Utility classes */
-.animate-fade-in {
-    animation: fadeIn var(--duration-slow) var(--ease-out);
+/* Bounce - подпрыгивание */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
 }
 
-.animate-fade-in-up {
-    animation: fadeInUp var(--duration-slow) var(--ease-out);
+/* Shake - встряска (для ошибок) */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
 }
 
-.animate-scale-in {
-    animation: scaleIn var(--duration-normal) var(--ease-out);
+/* Ping - расходящиеся круги (для уведомлений) */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
-.animate-slide-left {
-    animation: slideInLeft var(--duration-slow) var(--ease-out);
+/* ===========================================
+ * ANIMATION UTILITIES
+ * Классы для применения анимаций
+ * =========================================== */
+
+/* Base animation class */
+.animate {
+  animation-duration: var(--duration-normal);
+  animation-timing-function: var(--ease-out);
+  animation-fill-mode: both;
+}
+
+/* Animation types */
+.animate-fade-in { animation-name: fadeIn; }
+.animate-fade-out { animation-name: fadeOut; }
+.animate-fade-in-up { animation-name: fadeInUp; }
+.animate-fade-in-down { animation-name: fadeInDown; }
+.animate-fade-in-left { animation-name: fadeInLeft; }
+.animate-fade-in-right { animation-name: fadeInRight; }
+.animate-slide-up { animation-name: slideUp; }
+.animate-slide-down { animation-name: slideDown; }
+.animate-scale-in { animation-name: scaleIn; }
+.animate-scale-out { animation-name: scaleOut; }
+
+/* Looping animations */
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 .animate-pulse {
-    animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s var(--ease-in-out) infinite;
 }
 
-/* Stagger delays для последовательной анимации */
-.animate-delay-100 {
-    animation-delay: 100ms;
+.animate-bounce {
+  animation: bounce 1s infinite;
 }
 
-.animate-delay-200 {
-    animation-delay: 200ms;
+.animate-ping {
+  animation: ping 1s var(--ease-in-out) infinite;
 }
 
-.animate-delay-300 {
-    animation-delay: 300ms;
+.animate-shake {
+  animation: shake 0.5s var(--ease-default);
 }
 
-.animate-delay-400 {
-    animation-delay: 400ms;
+/* Animation delays */
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ===========================================
+ * SCROLL ANIMATIONS
+ * Анимации при скролле
+ * =========================================== */
+
+/* Initial state for scroll-triggered animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
 }
 
-/* Prefers-reduced-motion */
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variants */
+.scroll-fade {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.scroll-fade.is-visible {
+  opacity: 1;
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for lists */
+.scroll-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.scroll-stagger > *:nth-child(2) { transition-delay: 100ms; }
+.scroll-stagger > *:nth-child(3) { transition-delay: 200ms; }
+.scroll-stagger > *:nth-child(4) { transition-delay: 300ms; }
+.scroll-stagger > *:nth-child(5) { transition-delay: 400ms; }
+.scroll-stagger > *:nth-child(6) { transition-delay: 500ms; }
+
+/* ===========================================
+ * REDUCED MOTION
+ * Для пользователей с вестибулярными нарушениями
+ * =========================================== */
+
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-animate,
+  .scroll-fade,
+  .scroll-slide-left,
+  .scroll-slide-right,
+  .scroll-scale {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
+/* ===========================================
+ * LOADING STATES
+ * Состояния загрузки
+ * =========================================== */
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-gray-200);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+.spinner-sm { width: 16px; height: 16px; border-width: 2px; }
+.spinner-lg { width: 32px; height: 32px; border-width: 3px; }
+.spinner-xl { width: 48px; height: 48px; border-width: 4px; }
+
+/* Loading overlay */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.progress-bar-indeterminate .progress-bar-fill {
+  width: 30%;
+  animation: indeterminate 1.5s var(--ease-in-out) infinite;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
 }

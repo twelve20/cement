@@ -1,115 +1,377 @@
 /**
- * SPACING СИСТЕМА
- * 8px базовая сетка
+ * ARCHIN Design System - Spacing
+ * ================================
+ * Система отступов на основе 8px сетки
+ * 
+ * Базовая единица: 8px (0.5rem)
+ * Шкала: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128
  */
 
 :root {
-    /* Spacing scale (8px base) */
-    --space-0: 0;
-    --space-1: 0.25rem;  /* 4px */
-    --space-2: 0.5rem;   /* 8px */
-    --space-3: 0.75rem;  /* 12px */
-    --space-4: 1rem;     /* 16px */
-    --space-5: 1.25rem;  /* 20px */
-    --space-6: 1.5rem;   /* 24px */
-    --space-8: 2rem;     /* 32px */
-    --space-10: 2.5rem;  /* 40px */
-    --space-12: 3rem;    /* 48px */
-    --space-16: 4rem;    /* 64px */
-    --space-20: 5rem;    /* 80px */
-    --space-24: 6rem;    /* 96px */
-    --space-32: 8rem;    /* 128px */
-
-    /* Container widths */
-    --container-sm: 640px;
-    --container-md: 768px;
-    --container-lg: 1024px;
-    --container-xl: 1280px;
-    --container-2xl: 1536px;
+  /* ===========================================
+   * SPACING SCALE
+   * Основные переменные отступов
+   * =========================================== */
+  
+  /* 0px - без отступа */
+  --space-0: 0;
+  
+  /* 4px - минимальный отступ, иконки */
+  --space-0-5: 0.25rem;
+  
+  /* 8px - базовая единица, между элементами */
+  --space-1: 0.5rem;
+  
+  /* 12px - небольшой отступ */
+  --space-1-5: 0.75rem;
+  
+  /* 16px - стандартный отступ, padding кнопок */
+  --space-2: 1rem;
+  
+  /* 20px - увеличенный */
+  --space-2-5: 1.25rem;
+  
+  /* 24px - между группами элементов */
+  --space-3: 1.5rem;
+  
+  /* 32px - между секциями компонента */
+  --space-4: 2rem;
+  
+  /* 40px */
+  --space-5: 2.5rem;
+  
+  /* 48px - между блоками контента */
+  --space-6: 3rem;
+  
+  /* 56px */
+  --space-7: 3.5rem;
+  
+  /* 64px - между секциями страницы */
+  --space-8: 4rem;
+  
+  /* 80px */
+  --space-10: 5rem;
+  
+  /* 96px - большие секции */
+  --space-12: 6rem;
+  
+  /* 128px - hero секции */
+  --space-16: 8rem;
+  
+  /* 160px */
+  --space-20: 10rem;
+  
+  /* 192px */
+  --space-24: 12rem;
+  
+  /* ===========================================
+   * COMPONENT SPACING
+   * Переменные для компонентов
+   * =========================================== */
+  
+  /* Внутренние отступы компонентов */
+  --padding-xs: var(--space-1);      /* 8px */
+  --padding-sm: var(--space-2);      /* 16px */
+  --padding-md: var(--space-3);      /* 24px */
+  --padding-lg: var(--space-4);      /* 32px */
+  --padding-xl: var(--space-6);      /* 48px */
+  
+  /* Отступы между элементами */
+  --gap-xs: var(--space-0-5);        /* 4px */
+  --gap-sm: var(--space-1);          /* 8px */
+  --gap-md: var(--space-2);          /* 16px */
+  --gap-lg: var(--space-3);          /* 24px */
+  --gap-xl: var(--space-4);          /* 32px */
+  
+  /* Отступы секций */
+  --section-padding-sm: var(--space-6);   /* 48px */
+  --section-padding-md: var(--space-8);   /* 64px */
+  --section-padding-lg: var(--space-12);  /* 96px */
+  
+  /* ===========================================
+   * LAYOUT
+   * Размеры контейнеров и сетки
+   * =========================================== */
+  
+  /* Максимальные ширины контейнеров */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Отступы контейнера от краёв */
+  --container-padding: var(--space-2);
+  
+  /* Колонки сетки */
+  --grid-gap: var(--space-3);
 }
 
-/* Container */
-.container {
-    width: 100%;
-    max-width: var(--container-xl);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
-}
+/* ===========================================
+ * MARGIN UTILITIES
+ * Классы для внешних отступов
+ * =========================================== */
 
-@media (min-width: 640px) {
-    .container { max-width: var(--container-sm); }
-}
-
-@media (min-width: 768px) {
-    .container { max-width: var(--container-md); padding-left: var(--space-6); padding-right: var(--space-6); }
-}
-
-@media (min-width: 1024px) {
-    .container { max-width: var(--container-lg); }
-}
-
-@media (min-width: 1280px) {
-    .container { max-width: var(--container-xl); padding-left: var(--space-8); padding-right: var(--space-8); }
-}
-
-/* Margin utilities */
+/* Margin all sides */
 .m-0 { margin: var(--space-0); }
+.m-0-5 { margin: var(--space-0-5); }
+.m-1 { margin: var(--space-1); }
 .m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
 .m-4 { margin: var(--space-4); }
 .m-6 { margin: var(--space-6); }
 .m-8 { margin: var(--space-8); }
+.m-auto { margin: auto; }
 
+/* Margin X (horizontal) */
+.mx-0 { margin-left: var(--space-0); margin-right: var(--space-0); }
+.mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
+.mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
+.mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
+.mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Margin Y (vertical) */
+.my-0 { margin-top: var(--space-0); margin-bottom: var(--space-0); }
+.my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+.my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
+.my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
+.my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+.my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
+.my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
+
+/* Margin Top */
 .mt-0 { margin-top: var(--space-0); }
+.mt-0-5 { margin-top: var(--space-0-5); }
+.mt-1 { margin-top: var(--space-1); }
 .mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
 .mt-4 { margin-top: var(--space-4); }
 .mt-6 { margin-top: var(--space-6); }
 .mt-8 { margin-top: var(--space-8); }
 .mt-12 { margin-top: var(--space-12); }
 .mt-16 { margin-top: var(--space-16); }
 
+/* Margin Bottom */
 .mb-0 { margin-bottom: var(--space-0); }
+.mb-0-5 { margin-bottom: var(--space-0-5); }
+.mb-1 { margin-bottom: var(--space-1); }
 .mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
 .mb-4 { margin-bottom: var(--space-4); }
 .mb-6 { margin-bottom: var(--space-6); }
 .mb-8 { margin-bottom: var(--space-8); }
 .mb-12 { margin-bottom: var(--space-12); }
-.mb-16 { margin-bottom: var(--space-16); }
 
+/* Margin Left */
+.ml-0 { margin-left: var(--space-0); }
+.ml-1 { margin-left: var(--space-1); }
+.ml-2 { margin-left: var(--space-2); }
+.ml-3 { margin-left: var(--space-3); }
+.ml-4 { margin-left: var(--space-4); }
 .ml-auto { margin-left: auto; }
-.mr-auto { margin-right: auto; }
-.mx-auto { margin-left: auto; margin-right: auto; }
 
-/* Padding utilities */
+/* Margin Right */
+.mr-0 { margin-right: var(--space-0); }
+.mr-1 { margin-right: var(--space-1); }
+.mr-2 { margin-right: var(--space-2); }
+.mr-3 { margin-right: var(--space-3); }
+.mr-4 { margin-right: var(--space-4); }
+.mr-auto { margin-right: auto; }
+
+/* ===========================================
+ * PADDING UTILITIES
+ * Классы для внутренних отступов
+ * =========================================== */
+
+/* Padding all sides */
 .p-0 { padding: var(--space-0); }
+.p-0-5 { padding: var(--space-0-5); }
+.p-1 { padding: var(--space-1); }
+.p-1-5 { padding: var(--space-1-5); }
 .p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
 .p-4 { padding: var(--space-4); }
 .p-6 { padding: var(--space-6); }
 .p-8 { padding: var(--space-8); }
 
-.pt-8 { padding-top: var(--space-8); }
-.pt-12 { padding-top: var(--space-12); }
-.pt-16 { padding-top: var(--space-16); }
-.pt-24 { padding-top: var(--space-24); }
-
-.pb-8 { padding-bottom: var(--space-8); }
-.pb-12 { padding-bottom: var(--space-12); }
-.pb-16 { padding-bottom: var(--space-16); }
-.pb-24 { padding-bottom: var(--space-24); }
-
+/* Padding X (horizontal) */
+.px-0 { padding-left: var(--space-0); padding-right: var(--space-0); }
+.px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
 .px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
 .px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
 .px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
 
+/* Padding Y (vertical) */
+.py-0 { padding-top: var(--space-0); padding-bottom: var(--space-0); }
+.py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
 .py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
 .py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
 .py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
 .py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
 .py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
 
-/* Gap utilities (для Flexbox/Grid) */
+/* Padding Top */
+.pt-0 { padding-top: var(--space-0); }
+.pt-1 { padding-top: var(--space-1); }
+.pt-2 { padding-top: var(--space-2); }
+.pt-3 { padding-top: var(--space-3); }
+.pt-4 { padding-top: var(--space-4); }
+.pt-6 { padding-top: var(--space-6); }
+.pt-8 { padding-top: var(--space-8); }
+
+/* Padding Bottom */
+.pb-0 { padding-bottom: var(--space-0); }
+.pb-1 { padding-bottom: var(--space-1); }
+.pb-2 { padding-bottom: var(--space-2); }
+.pb-3 { padding-bottom: var(--space-3); }
+.pb-4 { padding-bottom: var(--space-4); }
+.pb-6 { padding-bottom: var(--space-6); }
+.pb-8 { padding-bottom: var(--space-8); }
+
+/* Padding Left */
+.pl-0 { padding-left: var(--space-0); }
+.pl-1 { padding-left: var(--space-1); }
+.pl-2 { padding-left: var(--space-2); }
+.pl-3 { padding-left: var(--space-3); }
+.pl-4 { padding-left: var(--space-4); }
+
+/* Padding Right */
+.pr-0 { padding-right: var(--space-0); }
+.pr-1 { padding-right: var(--space-1); }
+.pr-2 { padding-right: var(--space-2); }
+.pr-3 { padding-right: var(--space-3); }
+.pr-4 { padding-right: var(--space-4); }
+
+/* ===========================================
+ * GAP UTILITIES
+ * Для Flexbox и Grid
+ * =========================================== */
+
+.gap-0 { gap: var(--space-0); }
+.gap-0-5 { gap: var(--space-0-5); }
+.gap-1 { gap: var(--space-1); }
 .gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
 .gap-4 { gap: var(--space-4); }
 .gap-6 { gap: var(--space-6); }
 .gap-8 { gap: var(--space-8); }
+
+/* Column gap */
+.gap-x-1 { column-gap: var(--space-1); }
+.gap-x-2 { column-gap: var(--space-2); }
+.gap-x-3 { column-gap: var(--space-3); }
+.gap-x-4 { column-gap: var(--space-4); }
+.gap-x-6 { column-gap: var(--space-6); }
+
+/* Row gap */
+.gap-y-1 { row-gap: var(--space-1); }
+.gap-y-2 { row-gap: var(--space-2); }
+.gap-y-3 { row-gap: var(--space-3); }
+.gap-y-4 { row-gap: var(--space-4); }
+.gap-y-6 { row-gap: var(--space-6); }
+
+/* ===========================================
+ * CONTAINER
+ * Центрированный контейнер с max-width
+ * =========================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-sm { max-width: var(--container-sm); }
+.container-md { max-width: var(--container-md); }
+.container-lg { max-width: var(--container-lg); }
+.container-xl { max-width: var(--container-xl); }
+.container-2xl { max-width: var(--container-2xl); }
+.container-full { max-width: 100%; }
+
+/* ===========================================
+ * SECTION SPACING
+ * Вертикальные отступы для секций
+ * =========================================== */
+
+.section {
+  padding-top: var(--section-padding-md);
+  padding-bottom: var(--section-padding-md);
+}
+
+.section-sm {
+  padding-top: var(--section-padding-sm);
+  padding-bottom: var(--section-padding-sm);
+}
+
+.section-lg {
+  padding-top: var(--section-padding-lg);
+  padding-bottom: var(--section-padding-lg);
+}
+
+/* ===========================================
+ * RESPONSIVE CONTAINER PADDING
+ * Адаптивные отступы контейнера
+ * =========================================== */
+
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-4);
+    --grid-gap: var(--space-4);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: var(--space-6);
+  }
+}
+
+/* ===========================================
+ * WIDTH & HEIGHT UTILITIES
+ * Размеры элементов
+ * =========================================== */
+
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.w-screen { width: 100vw; }
+.max-w-full { max-width: 100%; }
+.max-w-none { max-width: none; }
+
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+.h-screen { height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+
+/* Fixed sizes */
+.w-4 { width: var(--space-2); }   /* 16px */
+.w-6 { width: var(--space-3); }   /* 24px */
+.w-8 { width: var(--space-4); }   /* 32px */
+.w-10 { width: var(--space-5); }  /* 40px */
+.w-12 { width: var(--space-6); }  /* 48px */
+
+.h-4 { height: var(--space-2); }
+.h-6 { height: var(--space-3); }
+.h-8 { height: var(--space-4); }
+.h-10 { height: var(--space-5); }
+.h-12 { height: var(--space-6); }
+
+/* Square sizes */
+.size-4 { width: var(--space-2); height: var(--space-2); }
+.size-6 { width: var(--space-3); height: var(--space-3); }
+.size-8 { width: var(--space-4); height: var(--space-4); }
+.size-10 { width: var(--space-5); height: var(--space-5); }
+.size-12 { width: var(--space-6); height: var(--space-6); }

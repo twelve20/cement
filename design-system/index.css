@@ -1,88 +1,405 @@
 /**
- * ДИЗАЙН-СИСТЕМА ARCHIN ОЛНАСТ
- * Минималистичная, технологичная, премиум
+ * ARCHIN Design System
+ * =====================
+ * Полная дизайн-система для B2B сайта дилера строительных материалов
+ * 
+ * Версия: 1.0.0
+ * Стиль: минимализм, технологичность, премиум
+ * Референсы: Apple, Stripe, Airbnb
+ * 
+ * Использование:
+ * @import 'design-system/index.css';
+ * 
+ * Или подключить отдельные файлы:
+ * @import 'design-system/colors.css';
+ * @import 'design-system/typography.css';
+ * и т.д.
  */
 
-/* Reset */
+/* ===========================================
+ * CORE IMPORTS
+ * Основные модули дизайн-системы
+ * =========================================== */
+
+/* 1. Цветовая палитра - CSS Custom Properties для цветов */
+@import 'colors.css';
+
+/* 2. Типографика - шрифты, размеры, стили текста */
+@import 'typography.css';
+
+/* 3. Отступы - spacing система на базе 8px сетки */
+@import 'spacing.css';
+
+/* 4. Компоненты - кнопки, карточки, формы, бейджи */
+@import 'components.css';
+
+/* 5. Анимации - transitions, keyframes, hover эффекты */
+@import 'animations.css';
+
+/* ===========================================
+ * BASE RESET & NORMALIZE
+ * Базовые стили сброса
+ * =========================================== */
+
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+html {
+  /* Prevent font size inflation on mobile */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
+/* Remove default margin */
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+figure,
+blockquote,
+dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Set core body defaults */
 body {
-    min-height: 100vh;
-    overflow-x: hidden;
+  min-height: 100vh;
+  line-height: var(--line-height-normal);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-primary);
+}
+
+a:not([class]):hover {
+  color: var(--color-primary-dark);
+}
+
+/* Make images easier to work with */
 img,
 picture,
 video,
 canvas,
 svg {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
+/* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    overflow-wrap: break-word;
+/* Remove all animations for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 }
 
-/* Импорты дизайн-системы */
-@import './colors.css';
-@import './typography.css';
-@import './spacing.css';
-@import './components.css';
-@import './animations.css';
+/* ===========================================
+ * LAYOUT UTILITIES
+ * Утилиты для layout
+ * =========================================== */
 
-/* Layout utilities */
-.hidden {
-    display: none;
+/* Display */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+
+/* Flexbox */
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+.items-baseline { align-items: baseline; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+.flex-grow { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.self-auto { align-self: auto; }
+.self-start { align-self: flex-start; }
+.self-center { align-self: center; }
+.self-end { align-self: flex-end; }
+.self-stretch { align-self: stretch; }
+
+/* Grid */
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-full { grid-column: 1 / -1; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.static { position: static; }
+
+.inset-0 { inset: 0; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+/* Z-index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-auto { z-index: auto; }
+
+/* Overflow */
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* ===========================================
+ * VISUAL UTILITIES
+ * Визуальные утилиты
+ * =========================================== */
+
+/* Backgrounds */
+.bg-white { background-color: var(--color-white); }
+.bg-gray-50 { background-color: var(--color-gray-50); }
+.bg-gray-100 { background-color: var(--color-gray-100); }
+.bg-gray-900 { background-color: var(--color-gray-900); }
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-50); }
+.bg-transparent { background-color: transparent; }
+
+/* Borders */
+.border { border: 1px solid var(--color-border-light); }
+.border-0 { border: 0; }
+.border-t { border-top: 1px solid var(--color-border-light); }
+.border-b { border-bottom: 1px solid var(--color-border-light); }
+.border-l { border-left: 1px solid var(--color-border-light); }
+.border-r { border-right: 1px solid var(--color-border-light); }
+
+/* Border colors */
+.border-transparent { border-color: transparent; }
+.border-gray-200 { border-color: var(--color-gray-200); }
+.border-gray-300 { border-color: var(--color-gray-300); }
+.border-primary { border-color: var(--color-primary); }
+
+/* Border radius */
+.rounded-none { border-radius: var(--radius-none); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Shadows */
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+
+/* Opacity */
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* Cursor */
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-default { cursor: default; }
+
+/* Pointer events */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* Select */
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }
+
+/* ===========================================
+ * RESPONSIVE UTILITIES
+ * Адаптивные классы
+ * =========================================== */
+
+/* Breakpoints:
+ * sm: 640px
+ * md: 768px
+ * lg: 1024px
+ * xl: 1280px
+ * 2xl: 1536px
+ */
+
+/* Hide on specific breakpoints */
+@media (max-width: 639px) {
+  .sm\:hidden { display: none; }
 }
 
+@media (min-width: 640px) {
+  .sm\:block { display: block; }
+  .sm\:flex { display: flex; }
+  .sm\:grid { display: grid; }
+  .sm\:hidden { display: none; }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:block { display: block; }
+  .md\:flex { display: flex; }
+  .md\:grid { display: grid; }
+  .md\:hidden { display: none; }
+  .md\:flex-row { flex-direction: row; }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block { display: block; }
+  .lg\:flex { display: flex; }
+  .lg\:grid { display: grid; }
+  .lg\:hidden { display: none; }
+  .lg\:flex-row { flex-direction: row; }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1280px) {
+  .xl\:block { display: block; }
+  .xl\:flex { display: flex; }
+  .xl\:grid { display: grid; }
+  .xl\:hidden { display: none; }
+  .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .xl\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* ===========================================
+ * ACCESSIBILITY
+ * Утилиты для доступности
+ * =========================================== */
+
+/* Screen reader only */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.pointer-events-none {
-    pointer-events: none;
+/* Not screen reader only (show) */
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
-/* Responsive utilities */
-@media (max-width: 640px) {
-    .sm\:hidden { display: none; }
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
 }
 
-@media (max-width: 768px) {
-    .md\:hidden { display: none; }
+.skip-link:focus {
+  top: var(--space-2);
 }
 
-@media (max-width: 1024px) {
-    .lg\:hidden { display: none; }
+/* ===========================================
+ * PRINT STYLES
+ * Стили для печати
+ * =========================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
 }
