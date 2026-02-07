@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIN ОЛНАСТ — Официальный дилер</title>
+    <meta name="description" content="Официальный дилер ARCHIN. Профессиональные строительные смеси премиум качества.">
+    <link rel="stylesheet" href="../design-system/index.css">
+</head>
+<body>
+    <!-- МИНИМАЛИСТИЧНЫЙ HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">ARCHIN</span>
+                    <span class="logo-badge">Официальный дилер</span>
+                </div>
+                <nav class="nav">
+                    <a href="#catalog">Каталог</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <a href="mailto:olnast.ru@yandex.ru" class="btn-primary">Оставить заявку</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO - Минималистичный, крупный заголовок -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Профессиональные<br>
+                    строительные смеси<br>
+                    <span class="text-primary">ARCHIN</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Официальный дилер в Москве и Московской области.<br>
+                    Прямые поставки с производства.
+                </p>
+                <div class="hero-actions">
+                    <a href="#catalog" class="btn-primary btn-lg">Смотреть каталог</a>
+                    <a href="tel:+79639273124" class="btn-secondary btn-lg">+7 (963) 927-31-24</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА - 3 карточки -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Официальный статус</h3>
+                    <p>Авторизованный дилер ARCHIN с подтверждённым сертификатом 2026 года</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Прямые поставки</h3>
+                    <p>Товар напрямую с производства. Гарантия качества и свежести</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Для профессионалов</h3>
+                    <p>Работаем с строительными компаниями, оптовые цены</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОПУЛЯРНЫЕ ТОВАРЫ -->
+    <section class="products" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Популярные товары</h2>
+            <div id="popular-products" class="products-grid">
+                <!-- Сюда загрузятся товары через products-loader.js -->
+            </div>
+            <div class="section-footer">
+                <a href="catalog.html" class="btn-outline">Смотреть весь каталог →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕРТИФИКАТ -->
+    <section class="certificate" id="about">
+        <div class="container">
+            <div class="certificate-content">
+                <div class="certificate-text">
+                    <h2>Сертификат официального дилера</h2>
+                    <p>
+                        ООО «ОЛНАСТ ГРУПП» — официальный дилер ТМ «Archin»<br>
+                        на территории Москвы и Московской области в 2026 году.
+                    </p>
+                    <p class="text-sm text-muted">
+                        ИНН: 5038193872 • ОГРН: 1255000071864
+                    </p>
+                </div>
+                <div class="certificate-image">
+                    <img src="../images/dealer-certificate.jpg" alt="Сертификат дилера Archin 2026">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <div class="contacts-grid">
+                <div>
+                    <h2>Связаться с нами</h2>
+                    <div class="contact-info">
+                        <p><strong>Телефон:</strong><br>
+                        <a href="tel:+79639273124">+7 (963) 927-31-24</a></p>
+                        
+                        <p><strong>Email:</strong><br>
+                        <a href="mailto:olnast.ru@yandex.ru">olnast.ru@yandex.ru</a></p>
+                        
+                        <p><strong>Режим работы:</strong><br>
+                        Пн-Пт: 9:00-18:00</p>
+                    </div>
+                </div>
+                <div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="tel" placeholder="Телефон" required>
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Сообщение" rows="4"></textarea>
+                        <button type="submit" class="btn-primary btn-lg">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p class="text-sm">© 2024 ООО «ОЛНАСТ ГРУПП»</p>
+                    <p class="text-xs text-muted">Официальный дилер ARCHIN</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../documents/requisites.pdf">Реквизиты</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/products-loader.js"></script>
+</body>
+</html>

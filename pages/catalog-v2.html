@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог продукции ARCHIN — Олнаст</title>
+    <link rel="stylesheet" href="../design-system/index.css">
+</head>
+<body>
+    <!-- Header будет общий -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span class="logo-text">ARCHIN</span>
+                        <span class="logo-badge">Официальный дилер</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <a href="../index.html#catalog">Каталог</a>
+                    <a href="../index.html#about">О нас</a>
+                    <a href="../index.html#contacts">Контакты</a>
+                </nav>
+                <a href="mailto:olnast.ru@yandex.ru" class="btn-primary">Оставить заявку</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="../index.html">Главная</a> / <span>Каталог</span>
+        </div>
+    </div>
+
+    <!-- Каталог -->
+    <section class="catalog">
+        <div class="container">
+            <h1>Каталог продукции ARCHIN</h1>
+            
+            <!-- Фильтры по категориям -->
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-category="all">Все товары</button>
+                <button class="filter-btn" data-category="Штукатурки">Штукатурки</button>
+                <button class="filter-btn" data-category="Шпатлевки">Шпатлёвки</button>
+                <button class="filter-btn" data-category="Грунты">Грунтовки</button>
+                <button class="filter-btn" data-category="Плиточные клеи">Клеи</button>
+                <button class="filter-btn" data-category="Краски">Краски</button>
+                <button class="filter-btn" data-category="Декоративные шпатлевки">Декоративные</button>
+            </div>
+
+            <!-- Сетка товаров -->
+            <div id="products-grid" class="products-grid">
+                <!-- Товары загрузятся через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="text-sm">© 2024 ООО «ОЛНАСТ ГРУПП» • Официальный дилер ARCHIN</p>
+                <a href="../documents/requisites.pdf" class="text-sm">Реквизиты</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/products-loader.js"></script>
+    <script>
+        // Фильтрация по категориям
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Убираем active у всех
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем active текущей
+                    btn.classList.add('active');
+                    
+                    // Фильтруем товары
+                    const category = btn.dataset.category;
+                    ProductsLoader.filterByCategory(category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
