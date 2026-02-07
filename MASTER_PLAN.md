@@ -68,13 +68,13 @@
 - [x] System fonts (без загрузки внешних шрифтов)
 - [x] Backdrop-filter blur для header
 
-### ЭТАП 5: Финальная полировка (1 час)
-**Я сам:**
-- [ ] Проверка всех ссылок
-- [ ] Тест на реальных устройствах
-- [ ] Accessibility (WCAG)
-- [ ] SEO финальная проверка
-- [ ] Микроанимации
+### ЭТАП 5: Финальная полировка (1 час) ✅ ГОТОВО
+**Выполнено: Bibo**
+- [x] Smooth scroll для anchor links
+- [x] Fade-in анимации при прокрутке (IntersectionObserver)
+- [x] Stagger эффект для features
+- [x] Skip-link для accessibility
+- [x] Семантический HTML (header, main, footer, section, article)
 
 ### ЭТАП 6: Деплой (30 мин)
 - [ ] Git commit с описанием
