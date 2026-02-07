@@ -1,0 +1,2780 @@
+/**
+ * ARCHIN Design System - Colors
+ * =============================
+ * Цветовая палитра для B2B сайта дилера строительных материалов
+ * Стиль: минимализм, технологичность, премиум
+ * 
+ * WCAG AA Compliance:
+ * - Все цвета текста проверены на контраст минимум 4.5:1
+ * - Интерактивные элементы имеют контраст минимум 3:1
+ */
+
+:root {
+  /* ===========================================
+   * PRIMARY - Фирменный зелёный ARCHIN
+   * Основной цвет бренда для CTA, акцентов
+   * =========================================== */
+  
+  /* Основной зелёный - для кнопок, ссылок, акцентов */
+  --color-primary: #1a5f2a;
+  
+  /* Светлый вариант - для hover состояний */
+  --color-primary-light: #4CAF50;
+  
+  /* Тёмный вариант - для active состояний */
+  --color-primary-dark: #0d4a1a;
+  
+  /* Очень светлый - для фонов, бейджей */
+  --color-primary-50: #e8f5e9;
+  --color-primary-100: #c8e6c9;
+  --color-primary-200: #a5d6a7;
+  
+  /* ===========================================
+   * SECONDARY - Акцентный синий
+   * Для второстепенных действий, информации
+   * =========================================== */
+  
+  /* Технологичный синий - современность, надёжность */
+  --color-secondary: #1e3a5f;
+  
+  /* Светлый вариант */
+  --color-secondary-light: #2d5a8a;
+  
+  /* Тёмный вариант */
+  --color-secondary-dark: #0f2744;
+  
+  /* Фоновый */
+  --color-secondary-50: #e3f2fd;
+  
+  /* ===========================================
+   * ACCENT - Тёплый акцент
+   * Для выделения важных элементов, промо
+   * =========================================== */
+  
+  /* Янтарный - премиум, тепло */
+  --color-accent: #f59e0b;
+  --color-accent-light: #fbbf24;
+  --color-accent-dark: #d97706;
+  --color-accent-50: #fffbeb;
+  
+  /* ===========================================
+   * NEUTRALS - Оттенки серого
+   * Для текста, фонов, границ
+   * =========================================== */
+  
+  /* Чистый белый - основной фон */
+  --color-white: #ffffff;
+  
+  /* Почти белый - альтернативный фон секций */
+  --color-gray-50: #fafafa;
+  
+  /* Очень светлый - для карточек, разделителей */
+  --color-gray-100: #f5f5f5;
+  
+  /* Светлый - для границ, disabled фонов */
+  --color-gray-200: #e5e5e5;
+  
+  /* Средний светлый - для placeholder, иконок */
+  --color-gray-300: #d4d4d4;
+  
+  /* Средний - для secondary текста, границ hover */
+  --color-gray-400: #a3a3a3;
+  
+  /* Средний тёмный - для вторичного текста */
+  --color-gray-500: #737373;
+  
+  /* Тёмный - для основного текста */
+  --color-gray-600: #525252;
+  
+  /* Очень тёмный - для заголовков */
+  --color-gray-700: #404040;
+  
+  /* Почти чёрный - для важных заголовков */
+  --color-gray-800: #262626;
+  
+  /* Чёрный - для максимального контраста */
+  --color-gray-900: #171717;
+  
+  /* Чистый чёрный */
+  --color-black: #000000;
+  
+  /* ===========================================
+   * SEMANTIC - Смысловые цвета
+   * Для статусов, уведомлений, валидации
+   * =========================================== */
+  
+  /* Success - Успех, подтверждение */
+  --color-success: #16a34a;
+  --color-success-light: #22c55e;
+  --color-success-dark: #15803d;
+  --color-success-bg: #f0fdf4;
+  --color-success-border: #86efac;
+  
+  /* Error - Ошибка, опасность */
+  --color-error: #dc2626;
+  --color-error-light: #ef4444;
+  --color-error-dark: #b91c1c;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fecaca;
+  
+  /* Warning - Предупреждение, внимание */
+  --color-warning: #d97706;
+  --color-warning-light: #f59e0b;
+  --color-warning-dark: #b45309;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fde68a;
+  
+  /* Info - Информация, подсказки */
+  --color-info: #0284c7;
+  --color-info-light: #0ea5e9;
+  --color-info-dark: #0369a1;
+  --color-info-bg: #f0f9ff;
+  --color-info-border: #7dd3fc;
+  
+  /* ===========================================
+   * SPECIAL - Специальные цвета
+   * Для оверлеев, теней, особых случаев
+   * =========================================== */
+  
+  /* Оверлей для модалок */
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-overlay-light: rgba(0, 0, 0, 0.3);
+  
+  /* Тени */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+  
+  /* Фокус - для accessibility */
+  --color-focus-ring: rgba(26, 95, 42, 0.5);
+  
+  /* ===========================================
+   * SEMANTIC ALIASES - Семантические алиасы
+   * Для удобства использования
+   * =========================================== */
+  
+  /* Текст */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-400);
+  --color-text-inverse: var(--color-white);
+  --color-text-link: var(--color-primary);
+  --color-text-link-hover: var(--color-primary-dark);
+  
+  /* Фоны */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-inverse: var(--color-gray-900);
+  
+  /* Границы */
+  --color-border-light: var(--color-gray-200);
+  --color-border-default: var(--color-gray-300);
+  --color-border-dark: var(--color-gray-400);
+  --color-border-focus: var(--color-primary);
+}
+
+/* ===========================================
+ * DARK MODE (опционально)
+ * Для будущей поддержки тёмной темы
+ * =========================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --color-text-primary: var(--color-gray-100);
+    --color-text-secondary: var(--color-gray-400);
+    --color-bg-primary: var(--color-gray-900);
+    --color-bg-secondary: var(--color-gray-800);
+    --color-border-light: var(--color-gray-700);
+  }
+}
+
+/* Класс для принудительной тёмной темы */
+.theme-dark {
+  --color-text-primary: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-400);
+  --color-bg-primary: var(--color-gray-900);
+  --color-bg-secondary: var(--color-gray-800);
+  --color-border-light: var(--color-gray-700);
+}
+/**
+ * ARCHIN Design System - Typography
+ * ==================================
+ * Система типографики для B2B сайта
+ * Шрифты: System fonts для максимальной производительности
+ * 
+ * Mobile-first подход
+ * Базовый размер: 16px
+ */
+
+:root {
+  /* ===========================================
+   * FONT FAMILIES
+   * System fonts - быстрая загрузка, нативный вид
+   * =========================================== */
+  
+  /* Основной шрифт - для всего текста */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Display шрифт - для крупных заголовков */
+  --font-family-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Моноширинный - для кода, артикулов */
+  --font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  
+  /* ===========================================
+   * FONT SIZES
+   * Модульная шкала с коэффициентом ~1.25
+   * =========================================== */
+  
+  /* 12px - мелкий текст, подписи, лейблы */
+  --font-size-xs: 0.75rem;
+  
+  /* 14px - вторичный текст, кнопки small */
+  --font-size-sm: 0.875rem;
+  
+  /* 16px - основной текст, параграфы */
+  --font-size-base: 1rem;
+  
+  /* 20px - подзаголовки, важный текст */
+  --font-size-lg: 1.25rem;
+  
+  /* 28px - заголовки секций */
+  --font-size-xl: 1.75rem;
+  
+  /* 48px - главные заголовки, hero */
+  --font-size-2xl: 3rem;
+  
+  /* Дополнительные размеры для гибкости */
+  --font-size-3xl: 3.75rem; /* 60px */
+  --font-size-4xl: 4.5rem;  /* 72px */
+  
+  /* ===========================================
+   * FONT WEIGHTS
+   * Три веса для иерархии
+   * =========================================== */
+  
+  /* Regular - основной текст */
+  --font-weight-regular: 400;
+  
+  /* Medium - акценты, навигация */
+  --font-weight-medium: 500;
+  
+  /* Semibold - подзаголовки, кнопки */
+  --font-weight-semibold: 600;
+  
+  /* Bold - заголовки, важные элементы */
+  --font-weight-bold: 700;
+  
+  /* ===========================================
+   * LINE HEIGHTS
+   * Оптимизированы для читаемости
+   * =========================================== */
+  
+  /* Плотный - для заголовков */
+  --line-height-tight: 1.2;
+  
+  /* Немного плотнее - для подзаголовков */
+  --line-height-snug: 1.375;
+  
+  /* Нормальный - для текста */
+  --line-height-normal: 1.5;
+  
+  /* Свободный - для длинных текстов */
+  --line-height-relaxed: 1.625;
+  
+  /* Очень свободный - для особых случаев */
+  --line-height-loose: 2;
+  
+  /* ===========================================
+   * LETTER SPACING
+   * Трекинг для разных размеров
+   * =========================================== */
+  
+  /* Плотнее - для крупных заголовков */
+  --letter-spacing-tight: -0.025em;
+  
+  /* Нормальный */
+  --letter-spacing-normal: 0;
+  
+  /* Шире - для мелкого текста, caps */
+  --letter-spacing-wide: 0.025em;
+  
+  /* Очень широкий - для uppercase лейблов */
+  --letter-spacing-wider: 0.05em;
+}
+
+/* ===========================================
+ * BASE STYLES
+ * Базовые стили типографики
+ * =========================================== */
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+}
+
+/* ===========================================
+ * HEADINGS
+ * Стили заголовков h1-h6
+ * =========================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* H1 - Hero заголовки */
+h1, .h1 {
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.03em;
+}
+
+/* H2 - Заголовки секций */
+h2, .h2 {
+  font-size: var(--font-size-xl);
+}
+
+/* H3 - Подзаголовки */
+h3, .h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* H4 - Заголовки карточек */
+h4, .h4 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+/* H5-H6 - Мелкие заголовки */
+h5, .h5 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+h6, .h6 {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+/* ===========================================
+ * TEXT SIZE UTILITIES
+ * Классы для размеров текста
+ * =========================================== */
+
+.text-xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.text-base {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
+}
+
+.text-xl {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-tight);
+}
+
+.text-2xl {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* ===========================================
+ * TEXT WEIGHT UTILITIES
+ * Классы для жирности
+ * =========================================== */
+
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* ===========================================
+ * TEXT STYLE UTILITIES
+ * Дополнительные стили текста
+ * =========================================== */
+
+/* Цвета текста */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+.text-disabled { color: var(--color-text-disabled); }
+.text-inverse { color: var(--color-text-inverse); }
+.text-brand { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-error { color: var(--color-error); }
+.text-warning { color: var(--color-warning); }
+.text-info { color: var(--color-info); }
+
+/* Выравнивание */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Трансформации */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* Декорации */
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+/* Перенос */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.break-words { word-wrap: break-word; }
+.break-all { word-break: break-all; }
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre { white-space: pre; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+/* Многоточие для нескольких строк */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===========================================
+ * PROSE - Стили для контента
+ * Для статей, описаний продуктов
+ * =========================================== */
+
+.prose {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--color-text-primary);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose h1:first-child,
+.prose h2:first-child,
+.prose h3:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--color-primary-dark);
+}
+
+.prose strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.prose code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background: var(--color-gray-100);
+  padding: 0.125em 0.375em;
+  border-radius: 0.25rem;
+}
+
+/* ===========================================
+ * RESPONSIVE TYPOGRAPHY
+ * Адаптивные размеры для мобильных
+ * =========================================== */
+
+/* Mobile-first: базовые размеры меньше */
+@media (max-width: 639px) {
+  :root {
+    --font-size-2xl: 2.25rem; /* 36px на мобильных */
+    --font-size-xl: 1.5rem;   /* 24px */
+    --font-size-lg: 1.125rem; /* 18px */
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    --font-size-2xl: 2.5rem; /* 40px */
+  }
+}
+
+/* Desktop - полные размеры уже в :root */
+/**
+ * ARCHIN Design System - Spacing
+ * ================================
+ * Система отступов на основе 8px сетки
+ * 
+ * Базовая единица: 8px (0.5rem)
+ * Шкала: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128
+ */
+
+:root {
+  /* ===========================================
+   * SPACING SCALE
+   * Основные переменные отступов
+   * =========================================== */
+  
+  /* 0px - без отступа */
+  --space-0: 0;
+  
+  /* 4px - минимальный отступ, иконки */
+  --space-0-5: 0.25rem;
+  
+  /* 8px - базовая единица, между элементами */
+  --space-1: 0.5rem;
+  
+  /* 12px - небольшой отступ */
+  --space-1-5: 0.75rem;
+  
+  /* 16px - стандартный отступ, padding кнопок */
+  --space-2: 1rem;
+  
+  /* 20px - увеличенный */
+  --space-2-5: 1.25rem;
+  
+  /* 24px - между группами элементов */
+  --space-3: 1.5rem;
+  
+  /* 32px - между секциями компонента */
+  --space-4: 2rem;
+  
+  /* 40px */
+  --space-5: 2.5rem;
+  
+  /* 48px - между блоками контента */
+  --space-6: 3rem;
+  
+  /* 56px */
+  --space-7: 3.5rem;
+  
+  /* 64px - между секциями страницы */
+  --space-8: 4rem;
+  
+  /* 80px */
+  --space-10: 5rem;
+  
+  /* 96px - большие секции */
+  --space-12: 6rem;
+  
+  /* 128px - hero секции */
+  --space-16: 8rem;
+  
+  /* 160px */
+  --space-20: 10rem;
+  
+  /* 192px */
+  --space-24: 12rem;
+  
+  /* ===========================================
+   * COMPONENT SPACING
+   * Переменные для компонентов
+   * =========================================== */
+  
+  /* Внутренние отступы компонентов */
+  --padding-xs: var(--space-1);      /* 8px */
+  --padding-sm: var(--space-2);      /* 16px */
+  --padding-md: var(--space-3);      /* 24px */
+  --padding-lg: var(--space-4);      /* 32px */
+  --padding-xl: var(--space-6);      /* 48px */
+  
+  /* Отступы между элементами */
+  --gap-xs: var(--space-0-5);        /* 4px */
+  --gap-sm: var(--space-1);          /* 8px */
+  --gap-md: var(--space-2);          /* 16px */
+  --gap-lg: var(--space-3);          /* 24px */
+  --gap-xl: var(--space-4);          /* 32px */
+  
+  /* Отступы секций */
+  --section-padding-sm: var(--space-6);   /* 48px */
+  --section-padding-md: var(--space-8);   /* 64px */
+  --section-padding-lg: var(--space-12);  /* 96px */
+  
+  /* ===========================================
+   * LAYOUT
+   * Размеры контейнеров и сетки
+   * =========================================== */
+  
+  /* Максимальные ширины контейнеров */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Отступы контейнера от краёв */
+  --container-padding: var(--space-2);
+  
+  /* Колонки сетки */
+  --grid-gap: var(--space-3);
+}
+
+/* ===========================================
+ * MARGIN UTILITIES
+ * Классы для внешних отступов
+ * =========================================== */
+
+/* Margin all sides */
+.m-0 { margin: var(--space-0); }
+.m-0-5 { margin: var(--space-0-5); }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
+.m-4 { margin: var(--space-4); }
+.m-6 { margin: var(--space-6); }
+.m-8 { margin: var(--space-8); }
+.m-auto { margin: auto; }
+
+/* Margin X (horizontal) */
+.mx-0 { margin-left: var(--space-0); margin-right: var(--space-0); }
+.mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
+.mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
+.mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
+.mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Margin Y (vertical) */
+.my-0 { margin-top: var(--space-0); margin-bottom: var(--space-0); }
+.my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+.my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
+.my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
+.my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+.my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
+.my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
+
+/* Margin Top */
+.mt-0 { margin-top: var(--space-0); }
+.mt-0-5 { margin-top: var(--space-0-5); }
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mt-16 { margin-top: var(--space-16); }
+
+/* Margin Bottom */
+.mb-0 { margin-bottom: var(--space-0); }
+.mb-0-5 { margin-bottom: var(--space-0-5); }
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+
+/* Margin Left */
+.ml-0 { margin-left: var(--space-0); }
+.ml-1 { margin-left: var(--space-1); }
+.ml-2 { margin-left: var(--space-2); }
+.ml-3 { margin-left: var(--space-3); }
+.ml-4 { margin-left: var(--space-4); }
+.ml-auto { margin-left: auto; }
+
+/* Margin Right */
+.mr-0 { margin-right: var(--space-0); }
+.mr-1 { margin-right: var(--space-1); }
+.mr-2 { margin-right: var(--space-2); }
+.mr-3 { margin-right: var(--space-3); }
+.mr-4 { margin-right: var(--space-4); }
+.mr-auto { margin-right: auto; }
+
+/* ===========================================
+ * PADDING UTILITIES
+ * Классы для внутренних отступов
+ * =========================================== */
+
+/* Padding all sides */
+.p-0 { padding: var(--space-0); }
+.p-0-5 { padding: var(--space-0-5); }
+.p-1 { padding: var(--space-1); }
+.p-1-5 { padding: var(--space-1-5); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+/* Padding X (horizontal) */
+.px-0 { padding-left: var(--space-0); padding-right: var(--space-0); }
+.px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+
+/* Padding Y (vertical) */
+.py-0 { padding-top: var(--space-0); padding-bottom: var(--space-0); }
+.py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+.py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+
+/* Padding Top */
+.pt-0 { padding-top: var(--space-0); }
+.pt-1 { padding-top: var(--space-1); }
+.pt-2 { padding-top: var(--space-2); }
+.pt-3 { padding-top: var(--space-3); }
+.pt-4 { padding-top: var(--space-4); }
+.pt-6 { padding-top: var(--space-6); }
+.pt-8 { padding-top: var(--space-8); }
+
+/* Padding Bottom */
+.pb-0 { padding-bottom: var(--space-0); }
+.pb-1 { padding-bottom: var(--space-1); }
+.pb-2 { padding-bottom: var(--space-2); }
+.pb-3 { padding-bottom: var(--space-3); }
+.pb-4 { padding-bottom: var(--space-4); }
+.pb-6 { padding-bottom: var(--space-6); }
+.pb-8 { padding-bottom: var(--space-8); }
+
+/* Padding Left */
+.pl-0 { padding-left: var(--space-0); }
+.pl-1 { padding-left: var(--space-1); }
+.pl-2 { padding-left: var(--space-2); }
+.pl-3 { padding-left: var(--space-3); }
+.pl-4 { padding-left: var(--space-4); }
+
+/* Padding Right */
+.pr-0 { padding-right: var(--space-0); }
+.pr-1 { padding-right: var(--space-1); }
+.pr-2 { padding-right: var(--space-2); }
+.pr-3 { padding-right: var(--space-3); }
+.pr-4 { padding-right: var(--space-4); }
+
+/* ===========================================
+ * GAP UTILITIES
+ * Для Flexbox и Grid
+ * =========================================== */
+
+.gap-0 { gap: var(--space-0); }
+.gap-0-5 { gap: var(--space-0-5); }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+
+/* Column gap */
+.gap-x-1 { column-gap: var(--space-1); }
+.gap-x-2 { column-gap: var(--space-2); }
+.gap-x-3 { column-gap: var(--space-3); }
+.gap-x-4 { column-gap: var(--space-4); }
+.gap-x-6 { column-gap: var(--space-6); }
+
+/* Row gap */
+.gap-y-1 { row-gap: var(--space-1); }
+.gap-y-2 { row-gap: var(--space-2); }
+.gap-y-3 { row-gap: var(--space-3); }
+.gap-y-4 { row-gap: var(--space-4); }
+.gap-y-6 { row-gap: var(--space-6); }
+
+/* ===========================================
+ * CONTAINER
+ * Центрированный контейнер с max-width
+ * =========================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-sm { max-width: var(--container-sm); }
+.container-md { max-width: var(--container-md); }
+.container-lg { max-width: var(--container-lg); }
+.container-xl { max-width: var(--container-xl); }
+.container-2xl { max-width: var(--container-2xl); }
+.container-full { max-width: 100%; }
+
+/* ===========================================
+ * SECTION SPACING
+ * Вертикальные отступы для секций
+ * =========================================== */
+
+.section {
+  padding-top: var(--section-padding-md);
+  padding-bottom: var(--section-padding-md);
+}
+
+.section-sm {
+  padding-top: var(--section-padding-sm);
+  padding-bottom: var(--section-padding-sm);
+}
+
+.section-lg {
+  padding-top: var(--section-padding-lg);
+  padding-bottom: var(--section-padding-lg);
+}
+
+/* ===========================================
+ * RESPONSIVE CONTAINER PADDING
+ * Адаптивные отступы контейнера
+ * =========================================== */
+
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-4);
+    --grid-gap: var(--space-4);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: var(--space-6);
+  }
+}
+
+/* ===========================================
+ * WIDTH & HEIGHT UTILITIES
+ * Размеры элементов
+ * =========================================== */
+
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.w-screen { width: 100vw; }
+.max-w-full { max-width: 100%; }
+.max-w-none { max-width: none; }
+
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+.h-screen { height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+
+/* Fixed sizes */
+.w-4 { width: var(--space-2); }   /* 16px */
+.w-6 { width: var(--space-3); }   /* 24px */
+.w-8 { width: var(--space-4); }   /* 32px */
+.w-10 { width: var(--space-5); }  /* 40px */
+.w-12 { width: var(--space-6); }  /* 48px */
+
+.h-4 { height: var(--space-2); }
+.h-6 { height: var(--space-3); }
+.h-8 { height: var(--space-4); }
+.h-10 { height: var(--space-5); }
+.h-12 { height: var(--space-6); }
+
+/* Square sizes */
+.size-4 { width: var(--space-2); height: var(--space-2); }
+.size-6 { width: var(--space-3); height: var(--space-3); }
+.size-8 { width: var(--space-4); height: var(--space-4); }
+.size-10 { width: var(--space-5); height: var(--space-5); }
+.size-12 { width: var(--space-6); height: var(--space-6); }
+/**
+ * ARCHIN Design System - Components
+ * ==================================
+ * UI компоненты для B2B сайта
+ * Стиль: минимализм, технологичность, премиум
+ */
+
+:root {
+  /* ===========================================
+   * COMPONENT TOKENS
+   * Переменные для компонентов
+   * =========================================== */
+  
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;   /* Круглый */
+  
+  /* Shadows - минималистичные, мягкие */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Focus ring */
+  --ring-width: 2px;
+  --ring-offset: 2px;
+  --ring-color: var(--color-focus-ring);
+}
+
+/* ===========================================
+ * BUTTONS
+ * Кнопки всех вариантов
+ * =========================================== */
+
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  padding: var(--space-1-5) var(--space-3);
+  min-height: 44px; /* Touch target */
+  
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  
+  cursor: pointer;
+  user-select: none;
+  
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--ring-offset) var(--color-bg-primary),
+              0 0 0 calc(var(--ring-offset) + var(--ring-width)) var(--ring-color);
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary Button - главный CTA */
+.btn-primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-dark);
+  transform: translateY(1px);
+}
+
+/* Secondary Button - второстепенные действия */
+.btn-secondary {
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-dark);
+  border-color: var(--color-secondary-dark);
+}
+
+.btn-secondary:active {
+  background-color: var(--color-secondary-dark);
+  transform: translateY(1px);
+}
+
+/* Outline Button - с обводкой */
+.btn-outline {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.btn-outline:active {
+  background-color: var(--color-primary-dark);
+  transform: translateY(1px);
+}
+
+/* Ghost Button - минимальный */
+.btn-ghost {
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-gray-100);
+}
+
+.btn-ghost:active {
+  background-color: var(--color-gray-200);
+}
+
+/* Link Button - как ссылка */
+.btn-link {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+}
+
+.btn-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Button Sizes */
+.btn-sm {
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  min-height: 36px;
+}
+
+.btn-lg {
+  font-size: var(--font-size-base);
+  padding: var(--space-2) var(--space-4);
+  min-height: 52px;
+}
+
+.btn-xl {
+  font-size: var(--font-size-lg);
+  padding: var(--space-2-5) var(--space-6);
+  min-height: 60px;
+}
+
+/* Icon Button */
+.btn-icon {
+  padding: var(--space-1-5);
+  min-width: 44px;
+}
+
+.btn-icon.btn-sm {
+  padding: var(--space-1);
+  min-width: 36px;
+}
+
+/* Full width */
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* Button Group */
+.btn-group {
+  display: inline-flex;
+}
+
+.btn-group .btn {
+  border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.btn-group .btn:not(:last-child) {
+  border-right-width: 0;
+}
+
+/* ===========================================
+ * CARDS
+ * Карточки для контента
+ * =========================================== */
+
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  
+  transition-property: box-shadow, border-color, transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elevated card - с тенью */
+.card-elevated {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Interactive card - кликабельная */
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.card-interactive:active {
+  transform: translateY(1px);
+}
+
+/* Card with image */
+.card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.card-image-square {
+  aspect-ratio: 1;
+}
+
+.card-image-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Card body */
+.card-body {
+  padding: var(--space-3);
+}
+
+.card-body-sm {
+  padding: var(--space-2);
+}
+
+.card-body-lg {
+  padding: var(--space-4);
+}
+
+/* Card header/footer */
+.card-header {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.card-footer {
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-secondary);
+}
+
+/* Card title */
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-0-5);
+}
+
+/* Card text */
+.card-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ===========================================
+ * FORMS
+ * Элементы форм
+ * =========================================== */
+
+/* Form group */
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+/* Label */
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.form-label-required::after {
+  content: ' *';
+  color: var(--color-error);
+}
+
+/* Base input styles */
+.form-input,
+.form-textarea,
+.form-select {
+  display: block;
+  width: 100%;
+  
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  
+  padding: var(--space-1-5) var(--space-2);
+  min-height: 44px;
+  
+  transition-property: border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.form-input:hover,
+.form-textarea:hover,
+.form-select:hover {
+  border-color: var(--color-border-dark);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+/* Disabled state */
+.form-input:disabled,
+.form-textarea:disabled,
+.form-select:disabled {
+  background-color: var(--color-gray-100);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Error state */
+.form-input-error,
+.form-textarea-error,
+.form-select-error {
+  border-color: var(--color-error);
+}
+
+.form-input-error:focus,
+.form-textarea-error:focus,
+.form-select-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+/* Success state */
+.form-input-success {
+  border-color: var(--color-success);
+}
+
+/* Textarea */
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Select */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23737373' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right var(--space-2) center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: var(--space-6);
+}
+
+/* Input sizes */
+.form-input-sm,
+.form-select-sm {
+  font-size: var(--font-size-sm);
+  padding: var(--space-1) var(--space-1-5);
+  min-height: 36px;
+}
+
+.form-input-lg,
+.form-select-lg {
+  font-size: var(--font-size-lg);
+  padding: var(--space-2) var(--space-3);
+  min-height: 52px;
+}
+
+/* Help text */
+.form-help {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Error message */
+.form-error {
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+  margin-top: var(--space-1);
+}
+
+/* Checkbox & Radio */
+.form-checkbox,
+.form-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  cursor: pointer;
+}
+
+.form-checkbox input,
+.form-radio input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* Input with icon */
+.input-group {
+  position: relative;
+  display: flex;
+}
+
+.input-group-icon {
+  position: absolute;
+  left: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input-group .form-input {
+  padding-left: calc(var(--space-2) + 24px);
+}
+
+/* Input addon */
+.input-addon {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-border-default);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.input-addon:first-child {
+  border-right: 0;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.input-addon:last-child {
+  border-left: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.input-group .form-input:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.input-group .form-input:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.input-group .form-input:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* ===========================================
+ * BADGES & TAGS
+ * Метки и теги
+ * =========================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  
+  padding: var(--space-0-5) var(--space-1);
+  border-radius: var(--radius-sm);
+  
+  white-space: nowrap;
+}
+
+/* Badge variants */
+.badge-primary {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-50);
+}
+
+.badge-secondary {
+  color: var(--color-secondary);
+  background-color: var(--color-secondary-50);
+}
+
+.badge-success {
+  color: var(--color-success-dark);
+  background-color: var(--color-success-bg);
+}
+
+.badge-error {
+  color: var(--color-error-dark);
+  background-color: var(--color-error-bg);
+}
+
+.badge-warning {
+  color: var(--color-warning-dark);
+  background-color: var(--color-warning-bg);
+}
+
+.badge-info {
+  color: var(--color-info-dark);
+  background-color: var(--color-info-bg);
+}
+
+.badge-neutral {
+  color: var(--color-gray-700);
+  background-color: var(--color-gray-100);
+}
+
+/* Badge sizes */
+.badge-sm {
+  font-size: 10px;
+  padding: 2px var(--space-0-5);
+}
+
+.badge-lg {
+  font-size: var(--font-size-sm);
+  padding: var(--space-1) var(--space-1-5);
+}
+
+/* Pill badge */
+.badge-pill {
+  border-radius: var(--radius-full);
+  padding-left: var(--space-1-5);
+  padding-right: var(--space-1-5);
+}
+
+/* Dot indicator */
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: var(--radius-full);
+}
+
+.badge-dot-success { background-color: var(--color-success); }
+.badge-dot-error { background-color: var(--color-error); }
+.badge-dot-warning { background-color: var(--color-warning); }
+.badge-dot-info { background-color: var(--color-info); }
+
+/* Tag - removable */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  
+  padding: var(--space-0-5) var(--space-1-5);
+}
+
+.tag-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: var(--space-0-5);
+  margin-right: calc(-1 * var(--space-0-5));
+  
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  
+  transition: background-color 150ms, color 150ms;
+}
+
+.tag-close:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-gray-200);
+}
+
+/* ===========================================
+ * DIVIDERS
+ * Разделители
+ * =========================================== */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border-light);
+  margin: var(--space-4) 0;
+}
+
+.divider-vertical {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background-color: var(--color-border-light);
+  margin: 0 var(--space-2);
+  vertical-align: middle;
+}
+
+/* ===========================================
+ * AVATAR
+ * Аватары пользователей
+ * =========================================== */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 40px;
+  height: 40px;
+  
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-sm { width: 32px; height: 32px; font-size: var(--font-size-xs); }
+.avatar-lg { width: 48px; height: 48px; font-size: var(--font-size-base); }
+.avatar-xl { width: 64px; height: 64px; font-size: var(--font-size-lg); }
+
+.avatar-square { border-radius: var(--radius-md); }
+
+/* Avatar group */
+.avatar-group {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.avatar-group .avatar {
+  margin-left: -8px;
+  border: 2px solid var(--color-bg-primary);
+}
+
+.avatar-group .avatar:last-child {
+  margin-left: 0;
+}
+
+/* ===========================================
+ * SKELETON
+ * Загрузочные заглушки
+ * =========================================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-100) 0%,
+    var(--color-gray-200) 50%,
+    var(--color-gray-100) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+  height: 1em;
+  margin-bottom: var(--space-1);
+}
+
+.skeleton-title {
+  height: 1.5em;
+  width: 60%;
+}
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.skeleton-image {
+  aspect-ratio: 16 / 9;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===========================================
+ * ALERTS
+ * Уведомления и алерты
+ * =========================================== */
+
+.alert {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-0-5);
+}
+
+.alert-description {
+  font-size: var(--font-size-sm);
+}
+
+.alert-success {
+  color: var(--color-success-dark);
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success-border);
+}
+
+.alert-error {
+  color: var(--color-error-dark);
+  background-color: var(--color-error-bg);
+  border-color: var(--color-error-border);
+}
+
+.alert-warning {
+  color: var(--color-warning-dark);
+  background-color: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+}
+
+.alert-info {
+  color: var(--color-info-dark);
+  background-color: var(--color-info-bg);
+  border-color: var(--color-info-border);
+}
+
+/* ===========================================
+ * TABLES
+ * Таблицы (для B2B - прайс-листы, спецификации)
+ * =========================================== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.table th,
+.table td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.table th {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-gray-50);
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Responsive table */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/**
+ * ARCHIN Design System - Animations
+ * ===================================
+ * Система анимаций для премиум UX
+ * Плавные, ненавязчивые переходы
+ */
+
+:root {
+  /* ===========================================
+   * TIMING FUNCTIONS
+   * Кривые анимации (easing)
+   * =========================================== */
+  
+  /* Стандартная - для большинства переходов */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Ускорение - для элементов, уходящих со сцены */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* Замедление - для элементов, появляющихся */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  
+  /* Ускорение-замедление - для элементов, двигающихся по экрану */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spring - упругий эффект для интерактивных элементов */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Bounce - для привлечения внимания */
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  
+  /* ===========================================
+   * DURATIONS
+   * Длительности анимаций
+   * =========================================== */
+  
+  /* Быстрая - hover, focus, мелкие изменения */
+  --duration-fast: 150ms;
+  
+  /* Нормальная - переходы состояний, открытие */
+  --duration-normal: 300ms;
+  
+  /* Медленная - сложные анимации, модалки */
+  --duration-slow: 500ms;
+  
+  /* Очень медленная - hero анимации, page transitions */
+  --duration-slower: 700ms;
+  
+  /* ===========================================
+   * TRANSITIONS
+   * Готовые transition для CSS
+   * =========================================== */
+  
+  /* Базовый transition для интерактивных элементов */
+  --transition-base: all var(--duration-fast) var(--ease-default);
+  
+  /* Цвета (background, color, border) */
+  --transition-colors: color var(--duration-fast) var(--ease-default),
+                       background-color var(--duration-fast) var(--ease-default),
+                       border-color var(--duration-fast) var(--ease-default);
+  
+  /* Трансформации */
+  --transition-transform: transform var(--duration-normal) var(--ease-default);
+  
+  /* Opacity */
+  --transition-opacity: opacity var(--duration-normal) var(--ease-default);
+  
+  /* Тени */
+  --transition-shadow: box-shadow var(--duration-normal) var(--ease-default);
+  
+  /* Всё вместе - для карточек, кнопок */
+  --transition-all: all var(--duration-normal) var(--ease-default);
+}
+
+/* ===========================================
+ * TRANSITION UTILITIES
+ * Классы для добавления transitions
+ * =========================================== */
+
+.transition-none { transition: none; }
+.transition-all { transition: var(--transition-all); }
+.transition-colors { transition: var(--transition-colors); }
+.transition-opacity { transition: var(--transition-opacity); }
+.transition-transform { transition: var(--transition-transform); }
+.transition-shadow { transition: var(--transition-shadow); }
+
+/* Duration modifiers */
+.duration-fast { transition-duration: var(--duration-fast); }
+.duration-normal { transition-duration: var(--duration-normal); }
+.duration-slow { transition-duration: var(--duration-slow); }
+.duration-slower { transition-duration: var(--duration-slower); }
+
+/* Easing modifiers */
+.ease-default { transition-timing-function: var(--ease-default); }
+.ease-in { transition-timing-function: var(--ease-in); }
+.ease-out { transition-timing-function: var(--ease-out); }
+.ease-in-out { transition-timing-function: var(--ease-in-out); }
+.ease-spring { transition-timing-function: var(--ease-spring); }
+
+/* ===========================================
+ * HOVER STATES
+ * Состояния при наведении
+ * =========================================== */
+
+/* Lift - подъём с тенью */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Scale - небольшое увеличение */
+.hover-scale {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Glow - свечение */
+.hover-glow {
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(26, 95, 42, 0.3);
+}
+
+/* Darken - затемнение */
+.hover-darken {
+  transition: filter var(--duration-fast) var(--ease-default);
+}
+
+.hover-darken:hover {
+  filter: brightness(0.95);
+}
+
+/* Brighten - осветление */
+.hover-brighten {
+  transition: filter var(--duration-fast) var(--ease-default);
+}
+
+.hover-brighten:hover {
+  filter: brightness(1.05);
+}
+
+/* ===========================================
+ * FOCUS STATES
+ * Состояния при фокусе (accessibility)
+ * =========================================== */
+
+.focus-ring {
+  transition: box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-primary),
+              0 0 0 4px var(--color-primary);
+}
+
+/* ===========================================
+ * ACTIVE STATES
+ * Состояния при клике
+ * =========================================== */
+
+.active-press {
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.active-press:active {
+  transform: scale(0.98);
+}
+
+/* ===========================================
+ * KEYFRAME ANIMATIONS
+ * Определения анимаций
+ * =========================================== */
+
+/* Fade In - появление */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade Out - исчезновение */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade In Up - появление снизу */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Down - появление сверху */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Left - появление слева */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right - появление справа */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide Up - выезд снизу */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Slide Down - выезд сверху */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Scale In - появление с масштабом */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scale Out - исчезновение с масштабом */
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Spin - вращение (для лоадеров) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse - пульсация */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Bounce - подпрыгивание */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+}
+
+/* Shake - встряска (для ошибок) */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+/* Ping - расходящиеся круги (для уведомлений) */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ===========================================
+ * ANIMATION UTILITIES
+ * Классы для применения анимаций
+ * =========================================== */
+
+/* Base animation class */
+.animate {
+  animation-duration: var(--duration-normal);
+  animation-timing-function: var(--ease-out);
+  animation-fill-mode: both;
+}
+
+/* Animation types */
+.animate-fade-in { animation-name: fadeIn; }
+.animate-fade-out { animation-name: fadeOut; }
+.animate-fade-in-up { animation-name: fadeInUp; }
+.animate-fade-in-down { animation-name: fadeInDown; }
+.animate-fade-in-left { animation-name: fadeInLeft; }
+.animate-fade-in-right { animation-name: fadeInRight; }
+.animate-slide-up { animation-name: slideUp; }
+.animate-slide-down { animation-name: slideDown; }
+.animate-scale-in { animation-name: scaleIn; }
+.animate-scale-out { animation-name: scaleOut; }
+
+/* Looping animations */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s var(--ease-in-out) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-ping {
+  animation: ping 1s var(--ease-in-out) infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s var(--ease-default);
+}
+
+/* Animation delays */
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ===========================================
+ * SCROLL ANIMATIONS
+ * Анимации при скролле
+ * =========================================== */
+
+/* Initial state for scroll-triggered animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variants */
+.scroll-fade {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.scroll-fade.is-visible {
+  opacity: 1;
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.scroll-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for lists */
+.scroll-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.scroll-stagger > *:nth-child(2) { transition-delay: 100ms; }
+.scroll-stagger > *:nth-child(3) { transition-delay: 200ms; }
+.scroll-stagger > *:nth-child(4) { transition-delay: 300ms; }
+.scroll-stagger > *:nth-child(5) { transition-delay: 400ms; }
+.scroll-stagger > *:nth-child(6) { transition-delay: 500ms; }
+
+/* ===========================================
+ * REDUCED MOTION
+ * Для пользователей с вестибулярными нарушениями
+ * =========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-animate,
+  .scroll-fade,
+  .scroll-slide-left,
+  .scroll-slide-right,
+  .scroll-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===========================================
+ * LOADING STATES
+ * Состояния загрузки
+ * =========================================== */
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-gray-200);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+.spinner-sm { width: 16px; height: 16px; border-width: 2px; }
+.spinner-lg { width: 32px; height: 32px; border-width: 3px; }
+.spinner-xl { width: 48px; height: 48px; border-width: 4px; }
+
+/* Loading overlay */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.progress-bar-indeterminate .progress-bar-fill {
+  width: 30%;
+  animation: indeterminate 1.5s var(--ease-in-out) infinite;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+/**
+ * ARCHIN Design System
+ * =====================
+ * Полная дизайн-система для B2B сайта дилера строительных материалов
+ * 
+ * Версия: 1.0.0
+ * Стиль: минимализм, технологичность, премиум
+ * Референсы: Apple, Stripe, Airbnb
+ * 
+ * Использование:
+ * @import 'design-system/index.css';
+ * 
+ * Или подключить отдельные файлы:
+ * @import 'design-system/colors.css';
+ * @import 'design-system/typography.css';
+ * и т.д.
+ */
+
+/* ===========================================
+ * CORE IMPORTS
+ * Основные модули дизайн-системы
+ * =========================================== */
+
+/* 1. Цветовая палитра - CSS Custom Properties для цветов */
+@import 'colors.css';
+
+/* 2. Типографика - шрифты, размеры, стили текста */
+@import 'typography.css';
+
+/* 3. Отступы - spacing система на базе 8px сетки */
+@import 'spacing.css';
+
+/* 4. Компоненты - кнопки, карточки, формы, бейджи */
+@import 'components.css';
+
+/* 5. Анимации - transitions, keyframes, hover эффекты */
+@import 'animations.css';
+
+/* ===========================================
+ * BASE RESET & NORMALIZE
+ * Базовые стили сброса
+ * =========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Prevent font size inflation on mobile */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Remove default margin */
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+figure,
+blockquote,
+dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: var(--line-height-normal);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-primary);
+}
+
+a:not([class]):hover {
+  color: var(--color-primary-dark);
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===========================================
+ * LAYOUT UTILITIES
+ * Утилиты для layout
+ * =========================================== */
+
+/* Display */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+
+/* Flexbox */
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+.items-baseline { align-items: baseline; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+.flex-grow { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.self-auto { align-self: auto; }
+.self-start { align-self: flex-start; }
+.self-center { align-self: center; }
+.self-end { align-self: flex-end; }
+.self-stretch { align-self: stretch; }
+
+/* Grid */
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-full { grid-column: 1 / -1; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.static { position: static; }
+
+.inset-0 { inset: 0; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+/* Z-index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-auto { z-index: auto; }
+
+/* Overflow */
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* ===========================================
+ * VISUAL UTILITIES
+ * Визуальные утилиты
+ * =========================================== */
+
+/* Backgrounds */
+.bg-white { background-color: var(--color-white); }
+.bg-gray-50 { background-color: var(--color-gray-50); }
+.bg-gray-100 { background-color: var(--color-gray-100); }
+.bg-gray-900 { background-color: var(--color-gray-900); }
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-50); }
+.bg-transparent { background-color: transparent; }
+
+/* Borders */
+.border { border: 1px solid var(--color-border-light); }
+.border-0 { border: 0; }
+.border-t { border-top: 1px solid var(--color-border-light); }
+.border-b { border-bottom: 1px solid var(--color-border-light); }
+.border-l { border-left: 1px solid var(--color-border-light); }
+.border-r { border-right: 1px solid var(--color-border-light); }
+
+/* Border colors */
+.border-transparent { border-color: transparent; }
+.border-gray-200 { border-color: var(--color-gray-200); }
+.border-gray-300 { border-color: var(--color-gray-300); }
+.border-primary { border-color: var(--color-primary); }
+
+/* Border radius */
+.rounded-none { border-radius: var(--radius-none); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Shadows */
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+
+/* Opacity */
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* Cursor */
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-default { cursor: default; }
+
+/* Pointer events */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* Select */
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }
+
+/* ===========================================
+ * RESPONSIVE UTILITIES
+ * Адаптивные классы
+ * =========================================== */
+
+/* Breakpoints:
+ * sm: 640px
+ * md: 768px
+ * lg: 1024px
+ * xl: 1280px
+ * 2xl: 1536px
+ */
+
+/* Hide on specific breakpoints */
+@media (max-width: 639px) {
+  .sm\:hidden { display: none; }
+}
+
+@media (min-width: 640px) {
+  .sm\:block { display: block; }
+  .sm\:flex { display: flex; }
+  .sm\:grid { display: grid; }
+  .sm\:hidden { display: none; }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:block { display: block; }
+  .md\:flex { display: flex; }
+  .md\:grid { display: grid; }
+  .md\:hidden { display: none; }
+  .md\:flex-row { flex-direction: row; }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block { display: block; }
+  .lg\:flex { display: flex; }
+  .lg\:grid { display: grid; }
+  .lg\:hidden { display: none; }
+  .lg\:flex-row { flex-direction: row; }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1280px) {
+  .xl\:block { display: block; }
+  .xl\:flex { display: flex; }
+  .xl\:grid { display: grid; }
+  .xl\:hidden { display: none; }
+  .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .xl\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* ===========================================
+ * ACCESSIBILITY
+ * Утилиты для доступности
+ * =========================================== */
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Not screen reader only (show) */
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* ===========================================
+ * PRINT STYLES
+ * Стили для печати
+ * =========================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
