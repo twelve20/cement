@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Главная страница -->
+    <url>
+        <loc>https://cement-opt.ru/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://cement-opt.ru/images/og-image.jpg</image:loc>
+            <image:title>ЦЕМЕНТ-ОПТ - Оптовые поставки цемента</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Каталог -->
+    <url>
+        <loc>https://cement-opt.ru/catalog.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://cement-opt.ru/images/catalog-og.jpg</image:loc>
+            <image:title>Каталог строительных материалов</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Страница товара (пример) -->
+    <url>
+        <loc>https://cement-opt.ru/product/portland-cement-m500-d0.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://cement-opt.ru/images/product-day.png</image:loc>
+            <image:title>Портландцемент М500 Д0</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Акции -->
+    <url>
+        <loc>https://cement-opt.ru/promotions.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- О компании -->
+    <url>
+        <loc>https://cement-opt.ru/about.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Контакты -->
+    <url>
+        <loc>https://cement-opt.ru/contacts.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Доставка и оплата -->
+    <url>
+        <loc>https://cement-opt.ru/delivery.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Гарантии -->
+    <url>
+        <loc>https://cement-opt.ru/warranty.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Возврат товара -->
+    <url>
+        <loc>https://cement-opt.ru/return.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Рассрочка и кредит -->
+    <url>
+        <loc>https://cement-opt.ru/credit.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Новости -->
+    <url>
+        <loc>https://cement-opt.ru/news.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Новость (пример) -->
+    <url>
+        <loc>https://cement-opt.ru/news/new-cement-line.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <image:image>
+            <image:loc>https://cement-opt.ru/images/news-new-cement-line.png</image:loc>
+            <image:title>Новая линейка цемента</image:title>
+        </image:image>
+    </url>
+    
+</urlset>

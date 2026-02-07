@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог товаров - ЦЕМЕНТ-ОПТ</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Путь к CSS из папки pages -->
+    <title>Каталог продукции ARCHIN - АРХИН ОЛНАСТ</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/catalog.css">
-    <!-- Можно добавить дополнительные стили для каталога, если нужно -->
-    <!-- <link rel="stylesheet" href="../css/catalog.css"> -->
 </head>
 <body>
     <!-- Мини шапка -->
@@ -25,7 +23,7 @@
                         <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                     </svg>
                 </a>
-                <a href="https://wa.me/79991234567" class="social-icon whatsapp" target="_blank">
+                <a href="https://wa.me/79639273124" class="social-icon whatsapp" target="_blank">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.892 6.961c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
@@ -38,12 +36,12 @@
     <!-- Основная шапка -->
     <header class="main-header">
         <div class="container">
-            <div class="logo">
+            <a href="../index.html" class="logo">
                 <h1>
-                    <span class="logo-primary">ЦЕМЕНТ</span>
-                    <span class="logo-secondary">ОПТ</span>
+                    <span class="logo-primary">АРХИН</span>
+                    <span class="logo-secondary">ОЛНАСТ</span>
                 </h1>
-            </div>
+            </a>
             
             <button class="catalog-btn">
                 <span>☰</span> Каталог
@@ -106,11 +104,11 @@
         <div class="container">
              <!-- Хлебные крошки -->
              <nav class="breadcrumb">
-                <a href="index.html">Главная</a> >
+                <a href="../index.html">Главная</a> >
                 <span>Каталог</span>
             </nav>
 
-            <h1 class="page-title">Каталог товаров</h1>
+            <h1 class="page-title">Каталог продукции ARCHIN</h1>
 
             <div class="catalog-layout">
                 <!-- Боковая панель фильтров -->
@@ -119,22 +117,21 @@
                         <h3>Категории</h3>
                         <ul class="filter-list">
                             <li><a href="#" class="active">Все категории</a></li>
-                            <li><a href="#">Цемент</a></li>
                             <li><a href="#">Сухие смеси</a></li>
-                            <li><a href="#">Строительные материалы</a></li>
-                            <li><a href="#">Инструменты</a></li>
-                            <li><a href="#">Утеплители</a></li>
+                            <li><a href="#">Штукатурки</a></li>
+                            <li><a href="#">Клеи</a></li>
+                            <li><a href="#">Шпаклёвки</a></li>
+                            <li><a href="#">Грунтовки</a></li>
                         </ul>
                     </div>
 
                     <div class="filter-section">
                         <h3>Цена</h3>
                         <div class="price-filter">
-                            <!-- Здесь будет слайдер или поля ввода -->
                             <label for="min-price">От:</label>
                             <input type="number" id="min-price" placeholder="0">
                             <label for="max-price">До:</label>
-                            <input type="number" id="max-price" placeholder="100000">
+                            <input type="number" id="max-price" placeholder="10000">
                             <button class="btn-filter">Применить</button>
                         </div>
                     </div>
@@ -142,9 +139,7 @@
                     <div class="filter-section">
                         <h3>Производитель</h3>
                         <ul class="filter-list">
-                            <li><label><input type="checkbox"> Производитель 1</label></li>
-                            <li><label><input type="checkbox"> Производитель 2</label></li>
-                            <li><label><input type="checkbox"> Производитель 3</label></li>
+                            <li><label><input type="checkbox" checked> ARCHIN</label></li>
                         </ul>
                     </div>
                 </aside>
@@ -163,70 +158,71 @@
                             </select>
                         </div>
                         <div class="view-options">
-                            <!-- Пока оставим как есть, можно добавить переключение видов -->
                         </div>
                     </div>
 
                     <!-- Сетка товаров -->
-                    <div class="products-grid">
-                        <!-- Примеры карточек товаров, как на главной -->
-                        <div class="product-card">
+                    <div class="products-grid" id="products-grid">
+                        <!-- Товар 1 -->
+                        <div class="product-card" data-product-id="archin-001">
                             <div class="product-badge hit-badge">ХИТ</div>
                             <div class="product-image">
-                                <img src="../images/best-portland-cement.png" alt="Портландцемент М400">
+                                <img src="../images/best-portland-cement.png" alt="Штукатурка ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Портландцемент М400</h3>
+                                <h3>Штукатурка ARCHIN универсальная</h3>
                                 <div class="product-meta">
-                                    <span class="product-category">Цемент</span>
+                                    <span class="product-category">Сухие смеси</span>
                                 </div>
                                 <div class="product-rating">
                                     <span class="stars">★★★★★</span>
                                     <span class="rating-count">(127)</span>
                                 </div>
-                                <div class="product-price">980 руб/т</div>
+                                <div class="product-price">980 руб/меш</div>
                                 <div class="product-actions">
                                     <button class="btn-add-to-cart-small">
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Штукатурка ARCHIN" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="product-card">
+                        <!-- Товар 2 -->
+                        <div class="product-card" data-product-id="archin-002">
                             <div class="product-badge new-badge">NEW</div>
                             <div class="product-image">
-                                <img src="../images/new-hydrophobic-cement.png" alt="Гидрофобный цемент">
+                                <img src="../images/new-hydrophobic-cement.png" alt="Смесь ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Гидрофобный цемент М400</h3>
+                                <h3>Смесь ARCHIN гидроизоляционная</h3>
                                 <div class="product-meta">
-                                    <span class="product-category">Цемент</span>
+                                    <span class="product-category">Сухие смеси</span>
                                 </div>
                                 <div class="product-rating">
                                     <span class="stars">★★★★☆</span>
                                     <span class="rating-count">(45)</span>
                                 </div>
-                                <div class="product-price">1 150 руб/т</div>
+                                <div class="product-price">1 150 руб/меш</div>
                                 <div class="product-actions">
                                     <button class="btn-add-to-cart-small">
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Смесь ARCHIN гидроизоляционная" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="product-card">
+                        <!-- Товар 3 -->
+                        <div class="product-card" data-product-id="archin-003">
                             <div class="product-badge">АКЦИЯ</div>
                             <div class="product-image">
-                                <img src="../images/best-tile-adhesive.png" alt="Клей для плитки">
+                                <img src="../images/best-tile-adhesive.png" alt="Клей ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Клей для плитки универсальный</h3>
+                                <h3>Клей ARCHIN для плитки</h3>
                                 <div class="product-meta">
                                     <span class="product-category">Клеи</span>
                                 </div>
@@ -240,19 +236,20 @@
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Клей ARCHIN" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="product-card">
+                        <!-- Товар 4 -->
+                        <div class="product-card" data-product-id="archin-004">
                             <div class="product-image">
-                                <img src="../images/best-gypsum-plaster.png" alt="Штукатурка гипсовая">
+                                <img src="../images/best-gypsum-plaster.png" alt="Шпаклёвка ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Штукатурка гипсовая финишная</h3>
+                                <h3>Шпаклёвка ARCHIN финишная</h3>
                                 <div class="product-meta">
-                                    <span class="product-category">Сухие смеси</span>
+                                    <span class="product-category">Шпаклёвки</span>
                                 </div>
                                 <div class="product-rating">
                                     <span class="stars">★★★★★</span>
@@ -264,41 +261,43 @@
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Шпаклёвка ARCHIN" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
 
-                         <div class="product-card">
+                        <!-- Товар 5 -->
+                        <div class="product-card" data-product-id="archin-005">
                             <div class="product-image">
-                                <img src="../images/new-superplasticizer.png" alt="Суперпластификатор">
+                                <img src="../images/new-superplasticizer.png" alt="Грунтовка ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Суперпластификатор S-3</h3>
+                                <h3>Грунтовка ARCHIN глубокого проникновения</h3>
                                 <div class="product-meta">
-                                    <span class="product-category">Химические добавки</span>
+                                    <span class="product-category">Грунтовки</span>
                                 </div>
                                 <div class="product-rating">
                                     <span class="stars">★★★★★</span>
                                     <span class="rating-count">(32)</span>
                                 </div>
-                                <div class="product-price">850 руб/кг</div>
+                                <div class="product-price">850 руб/л</div>
                                 <div class="product-actions">
                                     <button class="btn-add-to-cart-small">
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Грунтовка ARCHIN" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
 
-                         <div class="product-card">
+                        <!-- Товар 6 -->
+                        <div class="product-card" data-product-id="archin-006">
                             <div class="product-image">
-                                <img src="../images/new-self-leveling.png" alt="Самовыравнивающаяся смесь">
+                                <img src="../images/new-self-leveling.png" alt="Ровнитель ARCHIN">
                             </div>
                             <div class="product-info">
-                                <h3>Самовыравнивающаяся смесь</h3>
+                                <h3>Ровнитель ARCHIN для пола</h3>
                                 <div class="product-meta">
                                     <span class="product-category">Сухие смеси</span>
                                 </div>
@@ -312,11 +311,10 @@
                                         <span class="cart-icon">🛒</span>
                                         В корзину
                                     </button>
-                                    <a href="product.html" class="btn-quick-view">Быстрый просмотр</a>
+                                    <a href="mailto:olnast.ru@yandex.ru?subject=Заявка на Ровнитель ARCHIN" class="btn-quick-view">Заявка</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Добавь больше карточек товаров по аналогии -->
                     </div>
 
                     <!-- Пагинация -->
@@ -342,11 +340,11 @@
                 <div class="footer-column">
                     <h3>Каталог</h3>
                     <ul>
-                        <li><a href="catalog.html">Цемент</a></li>
                         <li><a href="catalog.html">Сухие смеси</a></li>
-                        <li><a href="catalog.html">Строительные материалы</a></li>
-                        <li><a href="catalog.html">Инструменты</a></li>
-                        <li><a href="catalog.html">Утеплители</a></li>
+                        <li><a href="catalog.html">Штукатурки</a></li>
+                        <li><a href="catalog.html">Клеи</a></li>
+                        <li><a href="catalog.html">Шпаклёвки</a></li>
+                        <li><a href="catalog.html">Грунтовки</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -355,32 +353,27 @@
                         <li><a href="about.html">О компании</a></li>
                         <li><a href="delivery.html">Доставка и оплата</a></li>
                         <li><a href="warranty.html">Гарантии</a></li>
-                        <li><a href="#">Возврат товара</a></li>
                         <li><a href="contacts.html">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <div class="contact-info">
-                        <p>📍 г. Москва, ул. Примерная, д. 10</p>
-                        <p>📞 +7 (495) 123-45-67</p>
-                        <p>✉️ info@cement-opt.ru</p>
+                        <p>📞 +7 (963) 927-31-24</p>
+                        <p>✉️ olnast.ru@yandex.ru</p>
                         <p>🕒 Пн-Пт: 9:00-18:00</p>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Подписка на новости</h3>
-                    <p>Получайте актуальные новости и специальные предложения</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Введите ваш email" required>
-                        <button type="submit">Подписаться</button>
-                    </form>
+                    <h3>Оставить заявку</h3>
+                    <p>Свяжитесь с нами для заказа продукции ARCHIN</p>
+                    <a href="mailto:olnast.ru@yandex.ru" class="btn-promotion" style="display: inline-block; margin-top: 10px;">Написать нам</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2024 ЦЕМЕНТ-ОПТ. Все права защищены.</p>
+                    <p>&copy; 2024 АРХИН ОЛНАСТ - Официальный дилер продукции ARCHIN. Все права защищены.</p>
                 </div>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Публичная оферта</a>
@@ -391,8 +384,7 @@
     </footer>
 
     <button class="scroll-to-top" id="scrollToTop">↑</button>
-    <script src="../js/script.js"></script> <!-- Путь к JS из папки pages -->
+    <script src="../js/script.js"></script>
     <script src="../js/catalog.js"></script>
-    <!-- Можно добавить дополнительные скрипты для каталога, если нужно -->
 </body>
 </html>

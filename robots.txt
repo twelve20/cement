@@ -1,0 +1,55 @@
+# Robots.txt for cement-opt.ru
+# SEO optimized configuration
+
+User-agent: *
+Allow: /
+
+# Allow main pages
+Allow: /pages/index.html
+Allow: /pages/catalog.html
+Allow: /pages/product.html
+Allow: /pages/about.html
+Allow: /pages/contacts.html
+Allow: /pages/delivery.html
+Allow: /pages/warranty.html
+Allow: /pages/news.html
+Allow: /pages/promotions.html
+Allow: /pages/credit.html
+Allow: /pages/return.html
+Allow: /pages/news-detail.html
+Allow: /pages/category.html
+
+# Disallow private/user pages
+Disallow: /pages/cart.html
+Disallow: /pages/checkout.html
+Disallow: /pages/profile.html
+Disallow: /pages/favorites.html
+Disallow: /pages/compare.html
+Disallow: /pages/thank-you.html
+Disallow: /pages/search-results.html
+Disallow: /pages/404.html
+
+# Disallow technical files
+Disallow: /*.min.css$
+Disallow: /*.min.js$
+
+# Allow CSS and JS for rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay (optional, some bots ignore)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://cement-opt.ru/sitemap.xml
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+Host: cement-opt.ru
+
+# Google specific
+User-agent: Googlebot
+Allow: /
