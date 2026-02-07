@@ -3,364 +3,736 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHIN ОЛНАСТ — Официальный дилер строительных смесей</title>
-    <meta name="description" content="Официальный дилер ARCHIN в Москве. Профессиональные строительные смеси премиум качества. Прямые поставки с производства.">
+    <title>ARCHIN ОЛНАСТ — Официальный дилер строительных смесей в Москве</title>
+    <meta name="description" content="Официальный дилер ARCHIN в Москве и МО. Штукатурки, шпатлевки, краски, грунты, клеи — прямые поставки с производства. Гарантия качества.">
+    <meta name="keywords" content="ARCHIN, строительные смеси, штукатурка, шпатлевка, Москва, официальный дилер, ОЛНАСТ">
+    <meta name="author" content="ООО ОЛНАСТ ГРУПП">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ARCHIN ОЛНАСТ — Официальный дилер">
+    <meta property="og:description" content="Профессиональные строительные смеси ARCHIN. Прямые поставки с производства.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+    
+    <!-- Design System -->
     <link rel="stylesheet" href="design-system/index.css">
+    
     <style>
-        /* Специфичные стили для главной */
+        /* ===== HEADER ===== */
         .header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-border);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border-light);
             z-index: 100;
-            padding: var(--space-4) 0;
         }
-
-        .header-content {
+        
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: var(--space-6);
+            padding: var(--space-4) 0;
         }
-
-        .logo-text {
-            font-size: var(--text-2xl);
-            font-weight: var(--font-bold);
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-400));
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-brand {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-600) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .logo-badge {
-            display: block;
-            font-size: var(--text-xs);
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
             color: var(--color-primary-600);
-            font-weight: var(--font-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
-
+        
         .nav {
             display: flex;
+            align-items: center;
             gap: var(--space-6);
         }
-
+        
+        .nav a {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover {
+            color: var(--color-primary);
+        }
+        
         @media (max-width: 768px) {
             .nav { display: none; }
         }
-
+        
+        /* ===== HERO ===== */
         .hero {
-            padding: var(--space-24) 0 var(--space-16);
-            background: linear-gradient(180deg, var(--color-gray-50) 0%, white 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            background: linear-gradient(180deg, var(--color-gray-50) 0%, transparent 100%);
         }
-
-        .hero-title {
+        
+        .hero-content {
+            max-width: 720px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-1) var(--space-3);
+            background: var(--color-primary-50);
+            color: var(--color-primary-dark);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            border-radius: var(--radius-full);
             margin-bottom: var(--space-6);
         }
-
-        .hero-subtitle {
-            font-size: var(--text-xl);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-8);
-            max-width: 600px;
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-6);
         }
-
+        
+        .hero-title span {
+            color: var(--color-primary);
+        }
+        
+        .hero-desc {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-8);
+        }
+        
         .hero-actions {
             display: flex;
-            gap: var(--space-4);
+            gap: var(--space-3);
             flex-wrap: wrap;
         }
-
-        @media (max-width: 640px) {
+        
+        @media (max-width: 480px) {
             .hero-actions {
                 flex-direction: column;
             }
             .hero-actions .btn {
                 width: 100%;
+                justify-content: center;
             }
         }
-
+        
+        /* ===== STATS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-6);
+            padding: var(--space-8) 0;
+            border-top: 1px solid var(--color-border-light);
+            border-bottom: 1px solid var(--color-border-light);
+            margin: var(--space-12) 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+            margin-top: var(--space-1);
+        }
+        
+        /* ===== SECTION ===== */
+        .section {
+            padding: var(--space-16) 0;
+        }
+        
+        .section-gray {
+            background: var(--color-gray-50);
+        }
+        
+        .section-header {
+            max-width: 600px;
+            margin-bottom: var(--space-10);
+        }
+        
+        .section-header.center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-3);
+        }
+        
+        .section-desc {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* ===== FEATURES ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-8);
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: var(--space-8);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto var(--space-4);
-            background: var(--color-primary-100);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-3xl);
-            color: var(--color-primary-600);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: var(--space-6);
-            margin-top: var(--space-8);
         }
-
-        .product-card-minimal {
-            background: white;
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
+        
+        .feature {
             padding: var(--space-6);
+            background: white;
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--radius-xl);
             transition: all 0.3s ease;
         }
-
-        .product-card-minimal:hover {
+        
+        .feature:hover {
+            border-color: var(--color-primary-200);
             box-shadow: var(--shadow-lg);
             transform: translateY(-4px);
         }
-
-        .product-image {
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary-50);
+            border-radius: var(--radius-lg);
+            font-size: 1.5rem;
             margin-bottom: var(--space-4);
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--color-gray-50);
         }
-
+        
+        .feature-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-2);
+        }
+        
+        .feature-desc {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* ===== PRODUCTS ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-5);
+        }
+        
+        .product-card {
+            background: white;
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            border-color: var(--color-primary-200);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .product-image {
+            aspect-ratio: 4/3;
+            background: var(--color-gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-gray-400);
+        }
+        
         .product-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
         }
-
+        
+        .product-body {
+            padding: var(--space-4);
+        }
+        
+        .product-category {
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-1);
+        }
+        
         .product-name {
-            font-size: var(--text-lg);
-            font-weight: var(--font-semibold);
-            margin-bottom: var(--space-2);
-            line-height: var(--leading-tight);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            line-height: 1.3;
+            margin-bottom: var(--space-3);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-
+        
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
         .product-price {
-            font-size: var(--text-2xl);
-            font-weight: var(--font-bold);
-            color: var(--color-primary-600);
-            margin-bottom: var(--space-4);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
         }
-
-        .certificate {
-            background: var(--color-gray-50);
+        
+        .product-price span {
+            font-size: var(--font-size-sm);
+            font-weight: 400;
+            color: var(--color-text-muted);
         }
-
-        .certificate-content {
+        
+        /* ===== CERTIFICATE ===== */
+        .certificate-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-12);
             align-items: center;
         }
-
+        
         @media (max-width: 768px) {
-            .certificate-content {
+            .certificate-grid {
                 grid-template-columns: 1fr;
-                gap: var(--space-6);
+                gap: var(--space-8);
             }
         }
-
+        
+        .certificate-text h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-4);
+        }
+        
+        .certificate-text p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-4);
+        }
+        
+        .certificate-text .details {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+        
         .certificate-image img {
-            border-radius: 12px;
+            width: 100%;
+            border-radius: var(--radius-xl);
             box-shadow: var(--shadow-xl);
         }
-
+        
+        /* ===== CONTACTS ===== */
         .contacts-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-12);
         }
-
+        
         @media (max-width: 768px) {
             .contacts-grid {
                 grid-template-columns: 1fr;
             }
         }
-
-        .contact-info p {
-            margin-bottom: var(--space-4);
+        
+        .contact-item {
+            margin-bottom: var(--space-6);
         }
-
+        
+        .contact-label {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-1);
+        }
+        
+        .contact-value {
+            font-size: var(--font-size-lg);
+            color: var(--color-gray-900);
+        }
+        
+        .contact-value a {
+            color: var(--color-gray-900);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-value a:hover {
+            color: var(--color-primary);
+        }
+        
         .contact-form {
             display: flex;
             flex-direction: column;
             gap: var(--space-4);
         }
-
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            transition: all 0.2s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* ===== CTA ===== */
+        .cta {
+            text-align: center;
+            padding: var(--space-16) 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-600) 100%);
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+        }
+        
+        .cta-desc {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .cta .btn-white {
+            background: white;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .cta .btn-white:hover {
+            background: var(--color-gray-100);
+        }
+        
+        /* ===== FOOTER ===== */
         .footer {
             background: var(--color-gray-900);
-            color: white;
-            padding: var(--space-8) 0;
-            margin-top: var(--space-24);
+            color: var(--color-gray-400);
+            padding: var(--space-10) 0;
         }
-
-        .footer-content {
+        
+        .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-4);
         }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                gap: var(--space-4);
-                text-align: center;
-            }
-        }
-
-        .footer a {
-            color: var(--color-gray-400);
-        }
-
-        .footer a:hover {
+        
+        .footer-brand {
+            font-weight: 600;
             color: white;
         }
-
+        
+        .footer-brand span {
+            font-weight: 400;
+            color: var(--color-gray-400);
+        }
+        
         .footer-links {
             display: flex;
             gap: var(--space-6);
         }
+        
+        .footer-links a {
+            color: var(--color-gray-400);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 640px) {
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* ===== VIEW ALL LINK ===== */
+        .view-all {
+            text-align: center;
+            margin-top: var(--space-10);
+        }
     </style>
 </head>
 <body>
+    <!-- Skip to content -->
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    
     <!-- HEADER -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-text">ARCHIN</span>
-                    <span class="logo-badge">Официальный дилер</span>
-                </div>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <span class="logo-brand">ARCHIN</span>
+                    <span class="logo-sub">Официальный дилер</span>
+                </a>
+                
                 <nav class="nav">
                     <a href="#catalog">Каталог</a>
-                    <a href="#about">О нас</a>
+                    <a href="#about">О компании</a>
                     <a href="#contacts">Контакты</a>
                 </nav>
-                <a href="mailto:olnast.ru@yandex.ru" class="btn-primary">Оставить заявку</a>
+                
+                <a href="tel:+79639273124" class="btn btn-primary">
+                    Позвонить
+                </a>
             </div>
         </div>
     </header>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">
-                Профессиональные<br>
-                строительные смеси<br>
-                <span class="text-primary">ARCHIN</span>
-            </h1>
-            <p class="hero-subtitle">
-                Официальный дилер в Москве и Московской области.<br>
-                Прямые поставки с производства. Гарантия качества.
-            </p>
-            <div class="hero-actions">
-                <a href="#catalog" class="btn-primary btn-lg">Смотреть каталог</a>
-                <a href="tel:+79639273124" class="btn-secondary btn-lg">+7 (963) 927-31-24</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card animate-fade-in-up">
-                    <div class="feature-icon">✓</div>
-                    <h3>Официальный статус</h3>
-                    <p class="text-secondary">Авторизованный дилер ARCHIN с подтверждённым сертификатом 2026 года</p>
-                </div>
-                <div class="feature-card animate-fade-in-up animate-delay-100">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Прямые поставки</h3>
-                    <p class="text-secondary">Товар напрямую с производства без посредников. Свежесть гарантирована</p>
-                </div>
-                <div class="feature-card animate-fade-in-up animate-delay-200">
-                    <div class="feature-icon">💼</div>
-                    <h3>Для профессионалов</h3>
-                    <p class="text-secondary">Работаем со строительными компаниями. Оптовые цены и документация</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ПОПУЛЯРНЫЕ ТОВАРЫ -->
-    <section class="products" id="catalog">
-        <div class="container">
-            <h2 class="section-title">Популярные товары</h2>
-            <div id="popular-products" class="products-grid">
-                <!-- Загрузятся через JS -->
-            </div>
-            <div class="section-footer">
-                <a href="pages/catalog-v2.html" class="btn-outline btn-lg">Смотреть весь каталог →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЕРТИФИКАТ -->
-    <section class="certificate" id="about">
-        <div class="container">
-            <div class="certificate-content">
-                <div class="certificate-text">
-                    <h2>Сертификат официального дилера</h2>
-                    <p class="text-lg mt-4 mb-6">
-                        ООО «ОЛНАСТ ГРУПП» — официальный дилер ТМ «Archin»<br>
-                        на территории Москвы и Московской области в 2026 году.
-                    </p>
-                    <p class="text-sm text-secondary">
-                        ИНН: 5038193872 • ОГРН: 1255000071864
-                    </p>
-                </div>
-                <div class="certificate-image">
-                    <img src="images/dealer-certificate.jpg" alt="Сертификат дилера Archin 2026" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- КОНТАКТЫ -->
-    <section class="contacts" id="contacts">
-        <div class="container">
-            <h2 class="section-title">Связаться с нами</h2>
-            <div class="contacts-grid">
-                <div class="contact-info">
-                    <h3 class="mb-6">Контактная информация</h3>
-                    <p><strong>Телефон:</strong><br>
-                    <a href="tel:+79639273124">+7 (963) 927-31-24</a></p>
+    
+    <!-- MAIN -->
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>✓</span> Сертифицированный дилер 2026
+                    </div>
                     
-                    <p><strong>Email:</strong><br>
-                    <a href="mailto:olnast.ru@yandex.ru">olnast.ru@yandex.ru</a></p>
+                    <h1 class="hero-title">
+                        Профессиональные<br>
+                        строительные смеси<br>
+                        <span>ARCHIN</span>
+                    </h1>
                     
-                    <p><strong>Режим работы:</strong><br>
-                    Понедельник-Пятница: 9:00-18:00</p>
+                    <p class="hero-desc">
+                        Прямые поставки с производства в Москве и области. 
+                        Штукатурки, шпатлевки, краски, грунты и клеи для любых задач.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#catalog" class="btn btn-primary btn-lg">Смотреть каталог</a>
+                        <a href="#contacts" class="btn btn-outline btn-lg">Получить прайс</a>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Телефон" required>
-                    <input type="email" placeholder="Email">
-                    <textarea placeholder="Сообщение" rows="4"></textarea>
-                    <button type="submit" class="btn-primary btn-lg">Отправить</button>
-                </form>
+                
+                <!-- STATS -->
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value">31</div>
+                        <div class="stat-label">Позиция в каталоге</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Категорий товаров</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2026</div>
+                        <div class="stat-label">Сертификат дилера</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">МСК</div>
+                        <div class="stat-label">Доставка по региону</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        
+        <!-- FEATURES -->
+        <section class="section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <h3 class="feature-title">Официальный статус</h3>
+                        <p class="feature-desc">Авторизованный дилер ARCHIN с подтверждённым сертификатом на 2026 год</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Прямые поставки</h3>
+                        <p class="feature-desc">Работаем напрямую с производством. Никаких посредников — свежий товар</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">📋</div>
+                        <h3 class="feature-title">Документация</h3>
+                        <p class="feature-desc">Полный комплект документов для бизнеса. Сертификаты, ТУ, паспорта качества</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PRODUCTS -->
+        <section class="section section-gray" id="catalog">
+            <div class="container">
+                <div class="section-header center">
+                    <h2 class="section-title">Популярные товары</h2>
+                    <p class="section-desc">Самые востребованные позиции из нашего каталога</p>
+                </div>
+                
+                <div id="popular-products" class="products-grid">
+                    <!-- Загрузятся через JS -->
+                </div>
+                
+                <div class="view-all">
+                    <a href="pages/catalog-v2.html" class="btn btn-outline btn-lg">
+                        Смотреть весь каталог →
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CERTIFICATE -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="certificate-grid">
+                    <div class="certificate-text">
+                        <h2>Сертификат официального дилера</h2>
+                        <p>
+                            ООО «ОЛНАСТ ГРУПП» является официальным дилером торговой марки «Archin» 
+                            на территории Москвы и Московской области в 2026 году.
+                        </p>
+                        <p>
+                            Мы гарантируем подлинность продукции, актуальные цены и полную 
+                            техническую поддержку по всем вопросам применения материалов.
+                        </p>
+                        <p class="details">
+                            ИНН: 5038193872 • ОГРН: 1255000071864
+                        </p>
+                    </div>
+                    <div class="certificate-image">
+                        <img src="images/dealer-certificate.jpg" alt="Сертификат дилера Archin 2026" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CONTACTS -->
+        <section class="section section-gray" id="contacts">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Связаться с нами</h2>
+                    <p class="section-desc">Ответим на вопросы, поможем с выбором и оформим заказ</p>
+                </div>
+                
+                <div class="contacts-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-label">Телефон</div>
+                            <div class="contact-value">
+                                <a href="tel:+79639273124">+7 (963) 927-31-24</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">
+                                <a href="mailto:olnast.ru@yandex.ru">olnast.ru@yandex.ru</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">Режим работы</div>
+                            <div class="contact-value">Пн–Пт: 9:00–18:00</div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">Регион</div>
+                            <div class="contact-value">Москва и Московская область</div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" action="mailto:olnast.ru@yandex.ru" method="post" enctype="text/plain">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <input type="email" name="email" placeholder="Email">
+                        <textarea name="message" placeholder="Сообщение или список товаров"></textarea>
+                        <button type="submit" class="btn btn-primary btn-lg">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Готовы оформить заказ?</h2>
+                <p class="cta-desc">Позвоните нам или отправьте заявку — ответим в течение часа</p>
+                <a href="tel:+79639273124" class="btn btn-white btn-lg">
+                    +7 (963) 927-31-24
+                </a>
+            </div>
+        </section>
+    </main>
+    
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <p class="font-medium">© 2024 ООО «ОЛНАСТ ГРУПП»</p>
-                    <p class="text-sm text-secondary">Официальный дилер ARCHIN</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    © 2026 ООО «ОЛНАСТ ГРУПП» <span>• Официальный дилер ARCHIN</span>
                 </div>
                 <div class="footer-links">
                     <a href="documents/requisites.pdf">Реквизиты</a>
@@ -369,7 +741,7 @@
             </div>
         </div>
     </footer>
-
+    
     <script src="js/products-loader.js"></script>
 </body>
 </html>
