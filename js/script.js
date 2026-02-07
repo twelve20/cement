@@ -236,6 +236,20 @@ const Cart = {
 };
 
 
+// ==================== КАТАЛОГ ====================
+const Catalog = {
+    init: function () {
+        const catalogBtn = document.querySelector('.catalog-btn');
+        if (catalogBtn) {
+            catalogBtn.addEventListener('click', () => this.show());
+        }
+    },
+
+    show: function () {
+        window.location.href = 'pages/catalog.html';
+    }
+};
+
 // ==================== АКЦИИ ====================
 const Promotions = {
     init: function () {
@@ -246,8 +260,7 @@ const Promotions = {
     },
 
     show: function () {
-        console.log('Акции и специальные предложения');
-        // В реальном проекте здесь будет логика показа акций
+        window.location.href = 'pages/promotions.html';
     }
 };
 
