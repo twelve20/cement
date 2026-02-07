@@ -649,3 +649,82 @@
         gap: 5px;
     }
 }
+/* ===========================================
+   СТРАНИЦА ТОВАРА: ПОЛНАЯ АДАПТИВНОСТЬ
+   =========================================== */
+
+@media (max-width: 768px) {
+    .product-page-layout {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .product-gallery {
+        width: 100%;
+    }
+    
+    .product-main-image {
+        height: 300px;
+    }
+    
+    .product-thumbnails {
+        gap: 8px;
+    }
+    
+    .product-thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .product-details {
+        width: 100%;
+    }
+    
+    .product-title {
+        font-size: 22px;
+    }
+    
+    .product-current-price {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-main-image {
+        height: 250px;
+    }
+    
+    .product-title {
+        font-size: 18px;
+    }
+    
+    .product-current-price {
+        font-size: 20px;
+    }
+    
+    .product-old-price {
+        font-size: 14px;
+    }
+    
+    .product-add-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-add-to-cart,
+    .btn-buy-now {
+        width: 100%;
+    }
+    
+    .product-tabs-nav {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .tab-btn {
+        flex: 1 1 auto;
+        min-width: 100px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}

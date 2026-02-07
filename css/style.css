@@ -2210,6 +2210,33 @@ img {
     color: #fff;
 }
 
+.footer-inn {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.footer-docs a {
+    color: #ccc;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.footer-docs a:hover {
+    color: #fff;
+}
+
+.footer-cta-text {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.footer-cta-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
 /* Подвал: адаптивность */
 @media (max-width: 1024px) {
     .footer-columns {

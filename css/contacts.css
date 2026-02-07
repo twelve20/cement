@@ -300,3 +300,50 @@
         font-size: 14px;
     }
 }
+/* ===========================================
+   КОНТАКТЫ: ПОЛНАЯ АДАПТИВНОСТЬ
+   =========================================== */
+
+@media (max-width: 768px) {
+    .contacts-layout {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .contacts-info,
+    .contacts-form {
+        width: 100%;
+    }
+    
+    .contact-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-section {
+        padding: 30px 0;
+    }
+    
+    .contact-card {
+        padding: 15px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 12px;
+    }
+    
+    .btn-submit {
+        width: 100%;
+    }
+}

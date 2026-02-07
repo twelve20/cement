@@ -795,3 +795,55 @@
         font-size: 14px;
     }
 }
+/* ===========================================
+   О КОМПАНИИ: ПОЛНАЯ АДАПТИВНОСТЬ
+   =========================================== */
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 40px 0;
+    }
+    
+    .about-hero h1 {
+        font-size: 28px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero h1 {
+        font-size: 24px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-item {
+        padding-left: 30px;
+    }
+}
